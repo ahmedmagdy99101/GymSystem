@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useEffect } from "react";
 
@@ -144,13 +131,13 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </SuiTypography>
         </SuiBox>
         <SuiBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <SuiBox component="img" src={brand} alt="Soft UI Logo" width="2rem" />}
+         {brand && <SuiBox component="img" src={brand} alt="Soft UI Logo" width="2rem" />} 
           <SuiBox
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
           >
             <SuiTypography component="h6" variant="button" fontWeight="medium">
-              {brandName}
+              {"Gym System"}
             </SuiTypography>
           </SuiBox>
         </SuiBox>
@@ -158,20 +145,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       <Divider />
       <List>{renderRoutes}</List>
       <SuiBox pt={2} my={2} mx={2} mt="auto">
-        <SidenavCard />
-        <SuiBox mt={2}>
-          <SuiButton
-            component="a"
-            href="https://creative-tim.com/product/soft-ui-dashboard-pro-react"
-            target="_blank"
-            rel="noreferrer"
-            variant="gradient"
-            color={color}
-            fullWidth
-          >
-            upgrade to pro
-          </SuiButton>
-        </SuiBox>
+       
+        
       </SuiBox>
     </SidenavRoot>
   );
