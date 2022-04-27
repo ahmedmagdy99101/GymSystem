@@ -5,10 +5,11 @@
 
 
 // ----------------------------------------------------------------------
-
+import './blog.css'
 export default function Blog() {
   return (
-    <div>asdasd
+    <div className="container">
+<div className='first'></div>
     </div>
   );
 }
