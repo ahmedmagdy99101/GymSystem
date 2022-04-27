@@ -10,7 +10,7 @@ import PRODUCTS from '../_mock/products';
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
-  const [openFilter, setOpenFilter] = useState(false);
+  /*const [openFilter, setOpenFilter] = useState(false);
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -18,21 +18,21 @@ export default function EcommerceShop() {
 
   const handleCloseFilter = () => {
     setOpenFilter(false);
-  };
+  };*/
 
   return (
-    <Page title="Dashboard: Products">
+    <Page title="Dashboard: Membership">
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Products
+          Membership
         </Typography>
 
         <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <ProductFilterSidebar
-              isOpenFilter={openFilter}
+              /*isOpenFilter={openFilter}
               onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter}
+              onCloseFilter={handleCloseFilter}*/
             />
             <ProductSort />
           </Stack>
