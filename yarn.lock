@@ -1130,7 +1130,7 @@
   "resolved" "https://registry.npmjs.org/@date-io/core/-/core-2.13.1.tgz"
   "version" "2.13.1"
 
-"@date-io/date-fns@^2.11.0":
+"@date-io/date-fns@^2.11.0", "@date-io/date-fns@^2.13.1":
   "integrity" "sha512-8fmfwjiLMpFLD+t4NBwDx0eblWnNcgt4NgfT/uiiQTGI81fnPu9tpBMYdAcuWxaV7LLpXgzLBx1SYWAMDVUDQQ=="
   "resolved" "https://registry.npmjs.org/@date-io/date-fns/-/date-fns-2.13.1.tgz"
   "version" "2.13.1"

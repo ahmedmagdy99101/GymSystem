@@ -78,10 +78,13 @@ export default function Register() {
 
         {mdUp && (
           <SectionStyle>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Manage the job more effectively with Minimal
+            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 4 }}>
+              Let’s start Daily Workout At our Gym
             </Typography>
-            <img alt="register" src="/static/illustrations/illustration_register.png" />
+            <Typography variant="h3" sx={{ px: 5 }}>
+              Just sign up
+            </Typography>
+            <img alt="register" src="/static/illustrations/Fitness-star.png" />
           </SectionStyle>
         )}
 
