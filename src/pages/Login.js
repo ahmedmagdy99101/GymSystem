@@ -45,7 +45,7 @@ const SectionStyle = styled(Card)(({ theme }) => ({
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
-  maxWidth: 480,
+  maxWidth: 550,
   margin: 'auto',
   minHeight: '100vh',
   display: 'flex',
@@ -79,10 +79,8 @@ export default function Login() {
 
         {mdUp && (
           <SectionStyle>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
-            </Typography>
-            <img src="/static/illustrations/illustration_login.png" alt="login" />
+            
+            <img src="/static/illustrations/s.jpg" alt="login" />
           </SectionStyle>
         )}
 
