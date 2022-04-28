@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:900,300);
+body {
+  background-color: #f0f0f0;
+  font-family: roboto;
+}
+.container {
+
+  width: 80wv;
+  background-color: #fff;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  text-align: center;
+}
+
+
+.avatar-flip {
+  border-radius: 100px;
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: auto;
+  top: -60px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 13px #f0f0f0;
+  -webkit-box-shadow: 0 0 0 13px #f0f0f0;
+  -moz-box-shadow: 0 0 0 13px #f0f0f0;
+}
+.avatar-flip img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+.avatar-flip img:first-child {
+  z-index: 1;
+}
+.avatar-flip img:last-child {
+  z-index: 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  opacity: 0;
+}
+h2 {
+	padding: 20px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: underline;
+
+}
+h4 {	padding: 20px;
+
+  font-size: 32px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+
+}
+.state{
+	color: #228B22	;
+}
+p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #666;
+}
+.info{
+	width: 100%;
+	height: 150px;
+}
+.memberInfo{
+	display: flex;
+	
+	justify-content: space-evenly;
+}
+.vl {
+	border-left: 6px solid gray;
+	height: 400px;
+	position: relative;
+	left: 80px;
+  }
+  .secondInfo{
+	  position: relative;
+	  left: 50px;
+  }
