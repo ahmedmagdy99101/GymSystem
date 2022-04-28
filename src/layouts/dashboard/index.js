@@ -37,7 +37,7 @@ export default function DashboardLayout() {
 
   return (
     <RootStyle>
-      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
+      
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <MainStyle>
         <Outlet />
@@ -45,3 +45,5 @@ export default function DashboardLayout() {
     </RootStyle>
   );
 }
+
+// the header is call <DashboardNavbar onOpenSidebar={() => setOpen(true)} />

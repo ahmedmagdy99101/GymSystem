@@ -8,7 +8,7 @@ import * as React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 // material
-import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
+import { Stack, TextField, IconButton, InputAdornment, RadioGroup, FormLabel, FormControl, FormControlLabel, Radio } from '@mui/material';
 import { DatePicker, LoadingButton } from '@mui/lab';
 // component
 import Iconify from '../../../components/Iconify';
@@ -26,7 +26,7 @@ export default function RegisterForm() {
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
     phone: Yup.string().min(11,'phone must be a valid number ').required('phone is required'),
     password: Yup.string().required('Password is required'),
-    Date: Yup.date().required('Date is required'),
+    date: Yup.date().required('Date is required'),
   });
 
   const formik = useFormik({
@@ -41,7 +41,7 @@ export default function RegisterForm() {
     },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+      navigate('/dashboard/app', { replace: true });
     },
   });
 
@@ -111,10 +111,22 @@ export default function RegisterForm() {
            label= "Birth Date"
            type='date'
            {...getFieldProps('date')}
-           helperText={touched.email && errors.email}
+           error={Boolean(touched.date && errors.date)}
+           helperText={touched.date && errors.date}
            />
-
-           
+            <FormControl>
+      <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+      <RadioGroup
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+      >
+        <FormControlLabel value="female" control={<Radio />} label="Female" />
+        <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <FormControlLabel value="other" control={<Radio />} label="Other" />
+        
+      </RadioGroup>
+    </FormControl>
           
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
             Register
