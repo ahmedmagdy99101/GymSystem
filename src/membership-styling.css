@@ -1,5 +1,6 @@
 #membership-container{
-    background-color: rgba(236, 220, 147, 0.493);
+    background-color: white;
+    color: rgb(0, 0, 148);
     border: 2px solid black;
     padding: 2%;
     width: 70vw;
@@ -17,7 +18,8 @@
 }
 #membership-table{
     border: 2px solid black;
-    background-color: rgba(236, 220, 147, 0.493);
+    background-color: white;
+    color: rgb(0, 0, 148);
     padding: 2%;
     width: 70vw;
     margin: 7vh auto;
