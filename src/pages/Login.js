@@ -80,7 +80,7 @@ export default function Login() {
         {mdUp && (
           <SectionStyle>
             
-            <img src="/static/illustrations/s.jpg" alt="login" />
+            <img src="/static/illustrations/illustration_login.jpg" alt="login" />
           </SectionStyle>
         )}
 
