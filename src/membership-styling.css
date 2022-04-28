@@ -1,0 +1,34 @@
+#membership-container{
+    background-color: rgba(236, 220, 147, 0.493);
+    border: 2px solid black;
+    padding: 2%;
+    width: 70vw;
+    margin: 5vh auto;
+    border-radius: 10px;
+}
+#membership-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+#user-data{
+    padding-top: 1%;
+}
+#membership-table{
+    border: 2px solid black;
+    background-color: rgba(236, 220, 147, 0.493);
+    padding: 2%;
+    width: 70vw;
+    margin: 7vh auto;
+    border-radius: 10px;
+}
+th{
+    border-bottom: 1px solid black;
+    width: 50%;
+}
+td{
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 2%;
+}
