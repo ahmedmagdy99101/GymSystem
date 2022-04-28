@@ -108,7 +108,7 @@ export default function RegisterForm() {
            <TextField
            fullWidth
            autoComplete='date'
-           label= "Birth Date"
+           label= ""
            type='date'
            {...getFieldProps('date')}
            error={Boolean(touched.date && errors.date)}
