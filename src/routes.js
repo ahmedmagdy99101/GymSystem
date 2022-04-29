@@ -29,7 +29,7 @@ export default function Router() {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard/app" /> },
+        { path: '/', element: <Navigate to="/dashboard/exercises" /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
       ],
