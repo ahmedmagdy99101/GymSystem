@@ -17,7 +17,7 @@ export default function Blog() {
   <div className='memberInfo'>
  
 
-      <div>
+      <div className='right-div'>
       <h2>name:<span>ahmed mohamed</span></h2>
 
   <h2>User ID: <span>55952265</span></h2>

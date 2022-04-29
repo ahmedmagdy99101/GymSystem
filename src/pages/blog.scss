@@ -2,18 +2,22 @@
 body {
   background-color: #f0f0f0;
   font-family: roboto;
+  overflow: hidden;
 }
 .container {
 
-  width: 80wv;
-  background-color: #fff;
-  border-radius: 6px;
+  width: 1000px;
+  height: 530px;
+ background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  
+	border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
+  border: 2px solid black;
 }
 
 
@@ -51,16 +55,16 @@ body {
   opacity: 0;
 }
 h2 {
-	padding: 20px;
-  font-size: 32px;
+	padding: 10px;
+  font-size: 28px;
   font-weight: 600;
   color: #333;
   text-decoration: underline;
 
 }
-h4 {	padding: 20px;
+h4 {	padding: 10px;
 
-  font-size: 32px;
+  font-size: 28px;
   letter-spacing: 1px;
   text-decoration: underline;
 
@@ -84,11 +88,21 @@ p {
 }
 .vl {
 	border-left: 6px solid gray;
-	height: 400px;
+	height: 300px;
 	position: relative;
 	left: 80px;
   }
   .secondInfo{
 	  position: relative;
 	  left: 50px;
+	  display: flex; 
+flex-direction: column ;
+justify-content: flex-start;
+align-items:flex-start;
   }
+  .right-div{
+display: flex; 
+flex-direction: column ;
+justify-content: flex-start;
+align-items:flex-start;
+}
