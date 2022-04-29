@@ -8,6 +8,7 @@ import User from './pages/User';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Products from './pages/Products';
+import Exercises from './pages/Exercises';
 import DashboardApp from './pages/DashboardApp';
 
 // ----------------------------------------------------------------------
@@ -18,7 +19,7 @@ export default function Router() {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { path: 'app', element: <DashboardApp /> },
+        { path: 'exercises', element: <Exercises /> },
         { path: 'user', element: <User /> },
         { path: 'membership', element: <Products /> },
         { path: 'blog', element: <Blog /> },

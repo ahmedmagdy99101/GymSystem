@@ -49,8 +49,8 @@ export default function DashboardApp() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
-              title="Website Visits"
-              subheader="(+43%) than last year"
+              title="Name of Exercise"
+              subheader="about your Exercises"
               chartLabels={[
                 '01/01/2003',
                 '02/01/2003',

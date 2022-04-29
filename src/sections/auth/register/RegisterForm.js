@@ -105,17 +105,17 @@ export default function RegisterForm() {
             error={Boolean(touched.password && errors.password)}
             helperText={touched.password && errors.password}
           />
-           <TextField
-           fullWidth
-           autoComplete='date'
-           label= "Birth Date"
-           type='date'
-           {...getFieldProps('date')}
-           error={Boolean(touched.date && errors.date)}
-           helperText={touched.date && errors.date}
-           />
+          <TextField
+          fullWidth
+          autoComplete='date'
+          label= "Birth Date"
+          type='date'
+          {...getFieldProps('date')}
+          error={Boolean(touched.date && errors.date)}
+          helperText={touched.date && errors.date}
+          />
             <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-Gender">Gender</FormLabel>
+      <FormLabel id="Gender">Gender</FormLabel>
       <RadioGroup
         row
         aria-labelledby="group-Gender"
