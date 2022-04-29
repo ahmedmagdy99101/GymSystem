@@ -110,6 +110,7 @@ export default function RegisterForm() {
           autoComplete='date'
           label= "Birth Date"
           type='date'
+          value='a'
           {...getFieldProps('date')}
           error={Boolean(touched.date && errors.date)}
           helperText={touched.date && errors.date}

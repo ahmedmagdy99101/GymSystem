@@ -50,20 +50,25 @@
   -webkit-transform: rotateY(180deg);
   opacity: 0;
 }
-h2 {
+.h2 {
 	padding: 10px;
   font-size: 28px;
   font-weight: 600;
   color: #333;
-  text-decoration: underline;
-
+  padding-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 3.1px;
+  width: fit-content;
 }
-h4 {	padding: 10px;
+.h4 {	padding: 10px;
+  font-weight: 600;
 
   font-size: 28px;
   letter-spacing: 1px;
-  text-decoration: underline;
-
+  padding-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 3.1px;
+  width: fit-content;
 }
 .state{
 	color: #228B22	;
