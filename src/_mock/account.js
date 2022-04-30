@@ -1,5 +1,4 @@
 // ----------------------------------------------------------------------
-import { Link as RouterLink } from 'react-router-dom';
 const account = {
   displayName: 'ahmedMohamed',
   email: 'demo@minimals.cc',
