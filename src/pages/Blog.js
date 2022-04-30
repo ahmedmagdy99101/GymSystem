@@ -9,6 +9,7 @@ import './blog.scss'
 export default function Blog() {
   return (
 <div class="container">
+  
   <div class="avatar-flip">
     <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150"/>
     <img src="http://i1112.photobucket.com/albums/k497/animalsbeingdicks/abd-3-12-2015.gif~original" height="150" width="150"/>
@@ -19,7 +20,6 @@ export default function Blog() {
 
       <div className='right-div'>
       <h2 className='h2'>name:<span>ahmed mohamed</span></h2>
-
   <h2 className='h2'>User ID: <span>55952265</span></h2>
   <h2 className='h2'>gender:<span>male</span></h2>
   <h2 className='h2'>age:<span>25</span></h2>
@@ -36,11 +36,14 @@ export default function Blog() {
 
 </div>
 
+
   </div>
 
  <div class='info'>
 
  </div>
+ 
 </div>
+
   );
 }

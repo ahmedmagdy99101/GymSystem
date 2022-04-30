@@ -1,10 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:900,300);
-
+body{
+}
 .container {
-
+  color: #2F2E33;
+margin: auto;
   width: 1000px;
   height: 530px;
- background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+ background-color: #D5D6D2 ;
   
 	border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -51,24 +53,23 @@
   opacity: 0;
 }
 .h2 {
-	padding: 10px;
+  width: 100%;
+	padding: 20px;
   font-size: 28px;
   font-weight: 600;
   color: #333;
   padding-bottom: 5px;
   border-bottom-style: solid;
   border-bottom-width: 3.1px;
-  width: fit-content;
 }
-.h4 {	padding: 10px;
+.h4 {	padding: 20px;
   font-weight: 600;
-
+  width: 100%;
   font-size: 28px;
   letter-spacing: 1px;
   padding-bottom: 5px;
   border-bottom-style: solid;
   border-bottom-width: 3.1px;
-  width: fit-content;
 }
 .state{
 	color: #228B22	;
@@ -84,26 +85,35 @@ p {
 }
 .memberInfo{
 	display: flex;
-	
+	border-radius: 10px;
+  border-top: 2px solid black;
 	justify-content: space-evenly;
 }
 .vl {
 	border-left: 6px solid gray;
-	height: 300px;
-	position: relative;
-	left: 80px;
+	height: auto;
+	
   }
   .secondInfo{
-	  position: relative;
-	  left: 50px;
+	 
 	  display: flex; 
 flex-direction: column ;
 justify-content: flex-start;
 align-items:flex-start;
+width: 100%;
   }
   .right-div{
+    width: 100%;
 display: flex; 
 flex-direction: column ;
 justify-content: flex-start;
 align-items:flex-start;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
