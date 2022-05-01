@@ -17,7 +17,7 @@ export default function exercises() {
 
     <Paper
       sx={{
-        p: 2,
+        p: 0,
         margin: 'auto',
         maxWidth: 1000,
         flexGrow: 1,
@@ -25,23 +25,23 @@ export default function exercises() {
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
     >
-      <Grid container spacing={2}>
+      <Grid container spacing={2} class='container-ex'>
         <Grid item>
-          <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt="complex" src="/static/images/grid/complex.jpg" />
-          </ButtonBase>
+          
+           
+         
         </Grid>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
-              <Typography gutterBottom variant="subtitle1" component="div">
-                Standard license
+              <Typography gutterBottom variant="h3" component="div">
+              Type of exercise
               </Typography>
               <Typography variant="body2" gutterBottom>
-                Full resolution 1920x1080 • JPEG
+              name of exercise
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ID: 1030114
+                number of exercise
               </Typography>
             </Grid>
             <Grid item>
@@ -51,9 +51,7 @@ export default function exercises() {
             </Grid>
           </Grid>
           <Grid item>
-            <Typography variant="subtitle1" component="div">
-              $19.00
-            </Typography>
+          <Img className='img-ex' alt="complex" src="/static/illustrations/Fitness-star.png" />
           </Grid>
         </Grid>
       </Grid>
