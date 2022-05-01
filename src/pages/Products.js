@@ -48,22 +48,13 @@ export default function EcommerceShop() {
         <Typography variant="h4" sx={{ mb: 5 }}>
           Payment
         </Typography>
-        
-        <div className='membership-tableContainer'>
-          <table className="membership-table">
-            <tr>
-              <th>Charge</th>
-              <td>218.00 EGP</td>
-            </tr>
-            <tr>
-              <th>Subscription Date</th>
-              <td>22/7/2021</td>
-            </tr>
-            <tr>
-              <th>Subscription End Date</th>
-              <td>224 Days left</td>
-            </tr>
-          </table>
+        <p>To extend your subscription, please enter payment code in the field:</p>
+        <div className='membership-payment'>
+          <form className="membership-paymentForm">
+            <label id="pay-label" for="code">Code: </label>
+            <input id="pay-text" type="text" name="code" />
+            <input id="pay-submit" type="submit" value="Subscribe" />
+          </form>
         </div>
         {/*<ProductList products={PRODUCTS} />
         <ProductCartWidget />*/}

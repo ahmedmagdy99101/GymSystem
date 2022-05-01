@@ -22,7 +22,7 @@
     color: black;
     margin-bottom: 2vh;
 }
-.membership-table{
+.membership-table, .membership-payment{
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,0.7763480392156863) 100%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -40,4 +40,33 @@ td{
     border-bottom: 1px solid black;
     text-align: center;
     padding: 2%;
+}
+.membership-paymentForm{
+    /*border: 1px solid black;*/
+    display: flex;
+}
+#pay-label{
+    font-size: 2em;
+    margin-right: 3%;
+}
+#pay-text{
+    width: 60%;
+    padding: 0.5%;
+    font-size: 2em;
+}
+#pay-submit{
+    margin-left: 4%;
+    padding: 1.5%;
+    width: 20%;
+    border-radius: 12px;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    background: rgb(40,9,167);
+    background: linear-gradient(90deg, rgba(40,9,167,0.8603816526610644) 27%, rgba(213,53,53,0.6446953781512605) 95%);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#pay-submit:hover{
+    cursor: pointer;
 }
