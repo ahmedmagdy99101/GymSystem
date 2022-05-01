@@ -14,7 +14,7 @@ export default function Blog() {
     <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150"/>
     <img src="http://i1112.photobucket.com/albums/k497/animalsbeingdicks/abd-3-12-2015.gif~original" height="150" width="150"/>
   </div>
-  <h4>member state:<spin class='state'>active</spin></h4>
+  <h4 className='center'>member state:<spin class='state'>active</spin></h4>
   <div className='memberInfo'>
  
 

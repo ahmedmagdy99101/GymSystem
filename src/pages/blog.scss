@@ -1,19 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:900,300);
-
+.center{
+  text-align: center;
+}
 .container {
   color: #2F2E33;
 margin: auto;
   width: 1000px;
   height: 530px;
  background-color: #D5D6D2 ;
+ box-shadow: 5px 5px 10px ;
+
+	border-radius: 60px;
   
-	border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
-  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
-  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
-  text-align: center;
   border: 2px solid black;
 }
 
