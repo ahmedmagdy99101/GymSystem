@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import Products from './pages/Products';
 import Exercises from './pages/Exercises';
 import DashboardApp from './pages/DashboardApp';
+import Home from './pages/Home';
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +30,7 @@ export default function Router() {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard/exercises" /> },
+        { path: '/', element: <Home /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
       ],

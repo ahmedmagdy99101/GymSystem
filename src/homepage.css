@@ -1,0 +1,93 @@
+.navigationList{
+    background: rgb(244,197,217);
+    background: linear-gradient(79deg, rgba(244,197,217,1) 0%, rgba(179,208,241,0.7763480392156863) 100%);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    height: 13vh;
+}
+.logoList{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    /*border: 2px solid black;*/
+    width: 22vw;
+    margin-left: 1vw;
+    font-size: 2em;
+}
+#home-logo{
+    width: 6vw;
+    height: 6vh;
+}
+#home-title{
+    margin-top: 2vh;
+    font-weight: bold;
+    color: rgb(151, 111, 36);
+}
+.buttonList{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 25vw;
+    /*height: 12vh;*/
+    margin-right: 1vw;
+}
+.sign-buttons{
+    margin-top: 3vh;
+    padding: 1em;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: rgb(40,9,167);
+    background: linear-gradient(90deg, rgba(40,9,167,1) 37%, rgba(213,53,199,1) 90%);
+    color: white;
+}
+.sign-buttons:hover{
+    cursor: pointer;
+}
+.sign-buttons:active{
+    transform: scale(0.95);
+}
+.image-section{
+    height: 87vh;
+    background-image: url("./assets/gym-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+}
+.headline{
+    text-align: center;
+    position: absolute;
+    width: 80vw;
+    padding: 2%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.headline-head{
+    color: rgb(255, 255, 255);
+    font-size: 3em;
+}
+.headline-text{
+    color: white;
+    font-size: 2em;
+    line-height: 2em;
+}
+.headline-button{
+    padding: 1em 0em;
+    margin-top: 1%;
+    width: 15%;
+    font-size: 1em;
+    font-weight: bold;
+    border: 1px solid white;
+    background: none;
+    color: white;
+}
+.headline-button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.5s ease-in-out;
+    background-color: black;
+}
