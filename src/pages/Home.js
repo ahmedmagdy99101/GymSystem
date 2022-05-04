@@ -1,18 +1,38 @@
 import '../homepage.css';
-import GymBG from '../assets/gym-bg.jpg';
+import GymExer from '../assets/gym-exer.png';
+import GymSubs from '../assets/gym-subs.png';
+
 import NavBar from '../components/NavigationBar';
+import HomeImage from '../components/HomeImage';
+import Separator from 'src/components/Separator';
+import HomeSection from 'src/components/HomeSection';
+import HomeFooter from 'src/components/HomeFooter';
 
 const Home = () => {
+    const HomeSections = {
+        Title: ["Exercises", "Subscription"],
+        Paragraph: ["Here, you can mentor your exercises.", "You can check your subscription status."],
+        Image: [GymExer, GymSubs]
+    }
+    
     return ( 
         <div>
             <NavBar />
-            <div className='image-section'></div>
-            <div className='headline'>
-                <p className='headline-head'>Gym Manager is live now!</p><br /><br />
-                <p className='headline-text'>Information about your exercises, sessions,
-                 subscription all in one place now</p>
-                <button className='headline-button'>Learn More</button>
-            </div>
+            <HomeImage />
+            <Separator />
+            <HomeSection 
+                Title={HomeSections.Title[0]} 
+                Paragraph={HomeSections.Paragraph[0]}
+                Image={HomeSections.Image[0]}
+            />
+            <Separator />
+            <HomeSection 
+                Title={HomeSections.Title[1]} 
+                Paragraph={HomeSections.Paragraph[1]}
+                Image={HomeSections.Image[1]}
+            />
+            <Separator />
+            <HomeFooter />
         </div>
     );
 }

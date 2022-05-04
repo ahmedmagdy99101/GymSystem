@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../assets/barbell.png';
 
 const NavBar = () => {
@@ -12,8 +13,8 @@ const NavBar = () => {
                 </li>
                 <li>
                     <ul className="buttonList">
-                        <li><button className='sign-buttons'>Sign in as a trainer</button></li>
-                        <li><button className='sign-buttons'>Sign in as a trainee</button></li>
+                        <li><Link className='sign-buttons' to="/login">Sign in as a trainer</Link></li>
+                        <li><Link className='sign-buttons' to="/login">Sign in as a trainee</Link></li>
                     </ul>
                 </li>
             </ul>
