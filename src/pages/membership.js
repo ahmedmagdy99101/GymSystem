@@ -14,15 +14,7 @@ import SubscriptionTable from '../components/SubscriptionTable';
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
-  /*const [openFilter, setOpenFilter] = useState(false);
 
-  const handleOpenFilter = () => {
-    setOpenFilter(true);
-  };
-
-  const handleCloseFilter = () => {
-    setOpenFilter(false);
-  };*/
 
   return (
     <Page title="Dashboard: Membership">
@@ -30,17 +22,6 @@ export default function EcommerceShop() {
         <Typography variant="h4" sx={{ mb: 5 }}>
           Membership
         </Typography>
-
-        {/*<Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
-          <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-            <ProductFilterSidebar
-              isOpenFilter={openFilter}
-              onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter}
-            />
-            <ProductSort />
-          </Stack>
-        </Stack>*/}
 
         <NameID />
         <SubscriptionTable />
@@ -56,8 +37,7 @@ export default function EcommerceShop() {
             <input id="pay-submit" type="submit" value="Subscribe" />
           </form>
         </div>
-        {/*<ProductList products={PRODUCTS} />
-        <ProductCartWidget />*/}
+       
       </Container>
     </Page>
   );

@@ -28,8 +28,6 @@ export default function exercises() {
       <Grid container spacing={2} class='container-ex'>
         <Grid item>
           
-           
-         
         </Grid>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>

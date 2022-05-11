@@ -4,12 +4,10 @@ import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import Blog from './pages/Blog';
-import User from './pages/User';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Products from './pages/Products';
+import Membership from './pages/membership';
 import Exercises from './pages/Exercises';
-import DashboardApp from './pages/DashboardApp';
 import Home from './pages/Home';
 
 // ----------------------------------------------------------------------
@@ -21,8 +19,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { path: 'exercises', element: <Exercises /> },
-        { path: 'user', element: <User /> },
-        { path: 'membership', element: <Products /> },
+        { path: 'membership', element: <Membership /> },
         { path: 'blog', element: <Blog /> },
       ],
     },

@@ -12,11 +12,6 @@ const navConfig = [
     icon: getIcon('eva:pie-chart-2-fill'),
   },
   {
-    title: 'user',
-    path: '/dashboard/user',
-    icon: getIcon('eva:people-fill'),
-  },
-  {
     title: 'membership',
     path: '/dashboard/membership',
     icon: getIcon('fa-solid:money-bill'),
@@ -26,17 +21,7 @@ const navConfig = [
     path: '/dashboard/blog',
     icon: getIcon('eva:file-text-fill'),
   },
-  {
-    title: 'login',
-    path: '/login',
-    icon: getIcon('eva:lock-fill'),
-  },
-  {
-    title: 'register',
-    path: '/register',
-    icon: getIcon('eva:person-add-fill'),
-  },
- 
+
 ];
 
 export default navConfig;
