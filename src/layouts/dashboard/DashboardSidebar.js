@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -14,7 +14,7 @@ import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 //
 import navConfig from './NavConfig';
-
+import axios from 'axios';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -50,8 +50,25 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     if (isOpenSidebar) {
       onCloseSidebar();
     }
-    
+
   }, [pathname]);
+
+
+  const [loading, setLoading] = useState('');
+  const [name, setName] = useState('');
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const userInfo = await axios.get('http://localhost:4000/api/v1/users/me', { withCredentials: true });
+        setName(userInfo.data.client['firstName'] + " " + userInfo.data.client['lastName'])
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
 
   const renderContent = (
     <Scrollbar
@@ -70,7 +87,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             <Avatar src={account.photoURL} alt="photoURL" />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                {account.displayName}
+                {name}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 {account.role}
@@ -84,39 +101,44 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
       <Box sx={{ flexGrow: 1 }} />
 
-      
+
     </Scrollbar>
   );
 
-  return (
-    <RootStyle>
-      {!isDesktop && (
-        <Drawer
-          open={isOpenSidebar}
-          onClose={onCloseSidebar}
-          PaperProps={{
-            sx: { width: DRAWER_WIDTH },
-          }}
-        >
-          {renderContent}
-        </Drawer>
-      )}
+  if (!loading) {
+    return (
+      <RootStyle>
+        {!isDesktop && (
+          <Drawer
+            open={isOpenSidebar}
+            onClose={onCloseSidebar}
+            PaperProps={{
+              sx: { width: DRAWER_WIDTH },
+            }}
+          >
+            {renderContent}
+          </Drawer>
+        )}
 
-      {isDesktop && (
-        <Drawer
-          open
-          variant="persistent"
-          PaperProps={{
-            sx: {
-              width: DRAWER_WIDTH,
-              bgcolor: 'background.default',
-              borderRightStyle: 'dashed',
-            },
-          }}
-        >
-          {renderContent}
-        </Drawer>
-      )}
-    </RootStyle>
-  );
+        {isDesktop && (
+          <Drawer
+            open
+            variant="persistent"
+            PaperProps={{
+              sx: {
+                width: DRAWER_WIDTH,
+                bgcolor: 'background.default',
+                borderRightStyle: 'dashed',
+              },
+            }}
+          >
+            {renderContent}
+          </Drawer>
+        )}
+      </RootStyle>
+    );
+  }
+  else {
+    return <div>No One</div>
+  }
 }

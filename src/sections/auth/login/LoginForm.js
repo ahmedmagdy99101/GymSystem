@@ -7,7 +7,8 @@ import { Link, Stack, Checkbox, TextField, IconButton, InputAdornment, FormContr
 import { LoadingButton } from '@mui/lab';
 // component
 import Iconify from '../../../components/Iconify';
-
+import axios from 'axios';
+import Cookies from 'js-cookie'
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
@@ -16,8 +17,8 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required'),
+    email1: Yup.string().email('Email must be a valid email address').required('Email is required'),
+    password1: Yup.string().required('Password is required'),
   });
 
   const formik = useFormik({
@@ -28,19 +29,46 @@ export default function LoginForm() {
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+
     },
   });
 
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const login = await axios.post('http://localhost:4000/api/v1/users/login', {
+      email,
+      password
+    })
+    Cookies.set('jwt', login.data['token'])
+    navigate('/dashboard/exercises', {
+      replace: true,
+      firstName: login.data['firstName'],
+      lastName: login.data['lastName'],
+      gender: login.data['gender'],
+    });
+  }
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
-
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSetEmail = (e) => {
+    setEmail(e.target.value);
+    console.log(email)
+  }
+
+  const handleSetPassword = (e) => {
+    setPassword(e.target.value);
+    console.log(password)
+  }
+
+
   return (
     <FormikProvider value={formik}>
-      <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <Form autoComplete="off" noValidate onSubmit={handleOnSubmit}>
         <Stack spacing={3}>
           <TextField
             fullWidth
@@ -50,6 +78,8 @@ export default function LoginForm() {
             {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
+            onChange={handleSetEmail}
+            value={email}
           />
 
           <TextField
@@ -58,6 +88,8 @@ export default function LoginForm() {
             type={showPassword ? 'text' : 'password'}
             label="Password"
             {...getFieldProps('password')}
+            onChange={handleSetPassword}
+            value={password}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">

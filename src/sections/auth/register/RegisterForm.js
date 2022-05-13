@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import axios from 'axios';
 import * as React from 'react';
+import Cookies from 'js-cookie';
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
@@ -21,35 +23,57 @@ export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('First name required'),
-    lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Last name required'),
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    phone: Yup.string().min(11,'phone must be a valid number ').required('phone is required'),
-    password: Yup.string().required('Password is required'),
-    date: Yup.date().required('Date is required'),
+
   });
 
   const formik = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-      password: '',
-      date: '',
+    // initialValues: {
+    //   firstName: '',
+    //   lastName: '',
+    //   phone: '',
+    //   email: '',
+    //   password: '',
+    //   date: '',
 
-    },
+    // },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      navigate('/dashboard/app', { replace: true });
+      //navigate('/dashboard/app', { replace: true });
     },
   });
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [gender, setGender] = useState('')
+  const [birthDate, setDate] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const signup = await axios.post('http://localhost:4000/api/v1/users/signup', {
+      "firstName": firstName,
+      "lastName": lastName,
+      "gender": gender,
+      "birthDate": birthDate,
+      "phone": phone,
+      "email": email,
+      "password": password
+    })
+    console.log(signup)
+    Cookies.set('jwt', signup.data['token'])
+    navigate('/dashboard/exercises', {
+      replace: true
+    });
+  }
+
   return (
     <FormikProvider value={formik}>
-      <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <Form autoComplete="off" noValidate onSubmit={handleOnSubmit}>
         <Stack spacing={3}>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <TextField
@@ -58,6 +82,7 @@ export default function RegisterForm() {
               {...getFieldProps('firstName')}
               error={Boolean(touched.firstName && errors.firstName)}
               helperText={touched.firstName && errors.firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
 
             <TextField
@@ -66,6 +91,7 @@ export default function RegisterForm() {
               {...getFieldProps('lastName')}
               error={Boolean(touched.lastName && errors.lastName)}
               helperText={touched.lastName && errors.lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </Stack>
           <TextField
@@ -76,6 +102,7 @@ export default function RegisterForm() {
             {...getFieldProps('phone')}
             error={Boolean(touched.phone && errors.phone)}
             helperText={touched.phone && errors.phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <TextField
             fullWidth
@@ -85,6 +112,7 @@ export default function RegisterForm() {
             {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <TextField
@@ -104,31 +132,34 @@ export default function RegisterForm() {
             }}
             error={Boolean(touched.password && errors.password)}
             helperText={touched.password && errors.password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <TextField
-          fullWidth
-          autoComplete='date'
-          label= "Birth Date"
-          type='date'
-          value='a'
-          {...getFieldProps('date')}
-          error={Boolean(touched.date && errors.date)}
-          helperText={touched.date && errors.date}
+            fullWidth
+            autoComplete='date'
+            label="Birth Date"
+            type='date'
+            value='a'
+            {...getFieldProps('date')}
+            error={Boolean(touched.date && errors.date)}
+            helperText={touched.date && errors.date}
+            onChange={(e) => setDate(e.target.value)}
           />
-            <FormControl>
-      <FormLabel id="Gender">Gender</FormLabel>
-      <RadioGroup
-        row
-        aria-labelledby="group-Gender"
-        name="group-Gender-name"
-      >
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Other" />
-        
-      </RadioGroup>
-    </FormControl>
-          
+          <FormControl>
+            <FormLabel id="Gender">Gender</FormLabel>
+            <RadioGroup
+              row
+              aria-labelledby="group-Gender"
+              name="group-Gender-name"
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <FormControlLabel value="female" control={<Radio />} label="Female" />
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel value="other" control={<Radio />} label="Other" />
+
+            </RadioGroup>
+          </FormControl>
+
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
             Register
           </LoadingButton>

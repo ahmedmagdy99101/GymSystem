@@ -1,21 +1,36 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
+import React, { useState, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
-
+import axios from 'axios';
 import './exercises.css'
-const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  });
-export default function exercises() {
-  return (
+import ExerciseCard from './ExerciseCard';
 
-    <Paper
+
+
+
+
+export default function exercises() {
+  const [loading, setLoading] = useState(true);
+  const [name, setName] = useState('')
+  const [excercisesName, setExcercisesName] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await axios.get('http://localhost:4000/api/v1/sports/me', { withCredentials: true });
+        setName(data.data.sports[0]['name'])
+        console.log(data.data.sports[0]['excercises'])
+        setExcercisesName(data.data.sports[0]['excercises'])
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
+
+
+  if (!loading) {
+    return (<Paper
       sx={{
         p: 0,
         margin: 'auto',
@@ -25,35 +40,12 @@ export default function exercises() {
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
     >
-      <Grid container spacing={2} class='container-ex'>
-        <Grid item>
-          
-        </Grid>
-        <Grid item xs={12} sm container>
-          <Grid item xs container direction="column" spacing={2}>
-            <Grid item xs>
-              <Typography gutterBottom variant="h3" component="div">
-              Type of exercise
-              </Typography>
-              <Typography variant="body2" gutterBottom>
-              name of exercise
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                number of exercise
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                Remove
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item>
-          <Img className='img-ex' alt="complex" src="/static/illustrations/Fitness-star.png" />
-          </Grid>
-        </Grid>
-      </Grid>
-    </Paper>
- 
-  );
+      {
+        excercisesName.map((exercise) => <ExerciseCard key={name} name={name} exercise={exercise.name} />)
+      }
+    </Paper>);
+  }
+  else {
+    return <div>Please Login</div>
+  }
 }
