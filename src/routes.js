@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Membership from './pages/membership';
 import Exercises from './pages/Exercises';
 import Home from './pages/Home';
+import Signupinfo from './pages/Signupinfo';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +31,7 @@ export default function Router() {
         { path: '/', element: <Home /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
+        { path: 'signinfo', element: <Signupinfo/> },
       ],
     },
   ]);

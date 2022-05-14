@@ -17,7 +17,7 @@ import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-export default function RegisterForm() {
+export default function RegisterInfo() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +38,7 @@ export default function RegisterForm() {
     // },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      navigate('/dashboard/signinfo', { replace: true });
+      //navigate('/dashboard/app', { replace: true });
     },
   });
 
@@ -66,7 +66,7 @@ export default function RegisterForm() {
     })
     console.log(signup)
     Cookies.set('jwt', signup.data['token'])
-    navigate('/dashboard/signinfo', {
+    navigate('/dashboard/exercises', {
       replace: true
     });
   }
@@ -78,8 +78,8 @@ export default function RegisterForm() {
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <TextField
               fullWidth
-              label="First name"
-              {...getFieldProps('firstName')}
+              label="Weight"
+            //  {...getFieldProps('firstName')}
               error={Boolean(touched.firstName && errors.firstName)}
               helperText={touched.firstName && errors.firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -87,8 +87,8 @@ export default function RegisterForm() {
 
             <TextField
               fullWidth
-              label="Last name"
-              {...getFieldProps('lastName')}
+              label="Height"
+           //   {...getFieldProps('lastName')}
               error={Boolean(touched.lastName && errors.lastName)}
               helperText={touched.lastName && errors.lastName}
               onChange={(e) => setLastName(e.target.value)}
@@ -96,10 +96,10 @@ export default function RegisterForm() {
           </Stack>
           <TextField
             fullWidth
-            autoComplete="username"
+            autoComplete="Goal"
             type="phone"
-            label="phone"
-            {...getFieldProps('phone')}
+            label="Goal"
+         //   {...getFieldProps('phone')}
             error={Boolean(touched.phone && errors.phone)}
             helperText={touched.phone && errors.phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -108,60 +108,36 @@ export default function RegisterForm() {
             fullWidth
             autoComplete="username"
             type="email"
-            label="Email address"
-            {...getFieldProps('email')}
+            label="Calories"
+        //    {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
             onChange={(e) => setEmail(e.target.value)}
           />
-
-          <TextField
+<TextField
             fullWidth
-            autoComplete="current-password"
-            type={showPassword ? 'text' : 'password'}
-            label="Password"
-            {...getFieldProps('password')}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton edge="end" onClick={() => setShowPassword((prev) => !prev)}>
-                    <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            error={Boolean(touched.password && errors.password)}
-            helperText={touched.password && errors.password}
-            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="username"
+            type="email"
+            label="DietPlan"
+          //  {...getFieldProps('email')}
+            error={Boolean(touched.email && errors.email)}
+            helperText={touched.email && errors.email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             fullWidth
-            autoComplete='date'
-            label="Birth Date"
-            type='date'
-            value='a'
-            {...getFieldProps('date')}
-            error={Boolean(touched.date && errors.date)}
-            helperText={touched.date && errors.date}
-            onChange={(e) => setDate(e.target.value)}
+            autoComplete="username"
+            type="email"
+            label="TrainingPlan"
+          //  {...getFieldProps('email')}
+            error={Boolean(touched.email && errors.email)}
+            helperText={touched.email && errors.email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <FormControl>
-            <FormLabel id="Gender">Gender</FormLabel>
-            <RadioGroup
-              row
-              aria-labelledby="group-Gender"
-              name="group-Gender-name"
-              onChange={(e) => setGender(e.target.value)}
-            >
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
-
-            </RadioGroup>
-          </FormControl>
+        
 
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
-            Next Step
+            Register
           </LoadingButton>
         </Stack>
       </Form>
