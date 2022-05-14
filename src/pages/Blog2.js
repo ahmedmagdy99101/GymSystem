@@ -8,8 +8,8 @@
 import _ from 'lodash';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './blog.scss'
-export default function Blog() {
+import './blog2.scss'
+export default function Blog2() {
   const [loading, setLoading] = useState(true);
   const [information, setInformation] = useState({})
   const [status, setStatus] = useState(false)
@@ -56,12 +56,10 @@ export default function Blog() {
 
           <div className='right-div'>
             <h2 className='h2'>name:<span>{information.firstName + " " + information.lastName}</span></h2>
-            <h2 className='h2'>User ID: <span>{information.id}</span></h2>
+            <h2 className='h2'>Trainer ID: <span>{information.id}</span></h2>
             <h2 className='h2'>gender:<span>{information.gender}</span></h2>
             <h2 className='h2'>date of birth:<span>{information.age}</span></h2>
-            <h2 className='h2'>goal:<span>{information.age}</span></h2>
-            <h2 className='h2'>training plan:<span>{information.age}</span></h2>
-            <h2 className='h2'>progress:<span>{information.age}</span></h2>
+           
 
 
           </div>
@@ -75,9 +73,7 @@ export default function Blog() {
             <h4 className='h4'> weight:<span>{information.weight}</span> kgm</h4>
             <h2 className='h2'>age:<span>{information.age}</span></h2>
 
-            <h4 className='h4'>height:<span>{information.height}</span> cm</h4>
-            <h4 className='h4'>calories:<span>{information.height}</span> cm</h4>
-            <h4 className='h4'>diet plan:<span>{information.height}</span> cm</h4>
+          
 
           </div>
 

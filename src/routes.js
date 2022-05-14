@@ -11,6 +11,7 @@ import Exercises from './pages/Exercises';
 import Home from './pages/Home';
 import Signupinfo from './pages/Signupinfo';
 import Login2 from './pages/Login2';
+import Blog2 from './pages/Blog2';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -22,6 +23,8 @@ export default function Router() {
         { path: 'exercises', element: <Exercises /> },
         { path: 'membership', element: <Membership /> },
         { path: 'blog', element: <Blog /> },
+        { path: 'Blog2', element: <Blog2 /> },
+
       ],
     },
     {
