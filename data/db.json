@@ -1,0 +1,52 @@
+{
+  "users": {
+    "me": [
+      {
+        "id": "1",
+        "firstName": "Ahmed",
+        "lastName": "Mohamed",
+        "gender": "Male",
+        "birthDate": "1999-02-20",
+        "phone": "01024251210",
+        "email": "ahmed@gmail.com"
+      },
+      {
+        "id": "2",
+        "firstName": "Ahmedooo",
+        "lastName": "Mohamedooo",
+        "gender": "Maleooo",
+        "birthDate": "1999-02-20000",
+        "phone": "01024251210000",
+        "email": "ahmed@gmail.comooo"
+      }
+    ]
+  },
+  "memberships": [
+    {
+      "active": "true",
+      "subDate": "13/5/2022",
+      "endDate": "365",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "active": "true",
+      "subDate": "1/4/2022",
+      "endDate": "90"
+    }
+  ],
+  "payments": [
+    {
+      "id": "1",
+      "21853898079920": "200"
+    },
+    {
+      "id": "2",
+      "86263483302944": "400"
+    },
+    {
+      "id": "3",
+      "45083597053272": "600"
+    }
+  ]
+}
