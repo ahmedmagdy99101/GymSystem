@@ -6,6 +6,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import axios from 'axios';
 import * as React from 'react';
 import Cookies from 'js-cookie';
+import MenuItem from '@mui/material/MenuItem';
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
@@ -17,7 +18,16 @@ import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-
+const currencies = [
+  {
+    value: '1',
+    label: 'body building',
+  },
+  {
+    value: '2',
+    label: 'power lefting',
+  },
+];
 
 
 export default function RegisterInfo() {
@@ -76,6 +86,12 @@ export default function RegisterInfo() {
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
+  const [currency, setCurrency] = React.useState('1');
+
+  const handleChange = () => {
+    setCurrency(target.value);
+  };
+
   return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleOnSubmit}>
@@ -102,8 +118,15 @@ export default function RegisterInfo() {
           <TextField
             fullWidth
             autoComplete="Goal"
-            type="phone"
             label="Goal"
+            //   {...getFieldProps('phone')}
+            // error={Boolean(touched.phone && errors.phone)}
+            // helperText={touched.phone && errors.phone}
+            onChange={(e) => setGoal(e.target.value)}
+          />
+          <TextField
+            fullWidth
+            label="Age"
             //   {...getFieldProps('phone')}
             // error={Boolean(touched.phone && errors.phone)}
             // helperText={touched.phone && errors.phone}
@@ -139,7 +162,20 @@ export default function RegisterInfo() {
             helperText={touched.email && errors.email}
             onChange={(e) => setTrainingPlan(e.target.value)}
           />
-
+          <TextField
+          id="outlined-select-currency"
+          select
+          label="Sports"
+          value={currency}
+          onChange={handleChange}
+          helperText="Please select your sport"
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
 
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
             Register
