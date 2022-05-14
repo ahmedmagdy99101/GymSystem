@@ -9,6 +9,7 @@ import Page from '../components/Page';
 import Logo from '../components/Logo';
 // sections
 import { RegisterInfo } from '../sections/auth/register';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -56,6 +57,9 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Register() {
+
+
+
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
@@ -78,7 +82,7 @@ export default function Register() {
         {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 4 }}>
-            Tell us about your goal
+              Tell us about your goal
             </Typography>
             <Typography variant="h3" sx={{ px: 5 }}>
               Just Complete this step
@@ -90,16 +94,16 @@ export default function Register() {
         <Container>
           <ContentStyle>
             <Typography variant="h4" gutterBottom>
-            Tell us about your goal
+              Tell us about your goal
             </Typography>
 
             <Typography sx={{ color: 'text.secondary', mb: 5 }}>Enter your information to help us find a suitable system.</Typography>
 
-          
 
-            <RegisterInfo/>
 
-           
+            <RegisterInfo />
+
+
 
             {!smUp && (
               <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>

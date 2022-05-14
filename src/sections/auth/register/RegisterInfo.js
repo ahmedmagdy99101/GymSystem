@@ -17,10 +17,42 @@ import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
+
+
+
 export default function RegisterInfo() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const [heigth, setHeight] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [goal, setGoal] = useState('');
+  const [calories, setCalories] = useState(0);
+  const [dietPlan, setDietPlan] = useState('');
+  const [trainingPlan, setTrainingPlan] = useState('');
+
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const signup = await axios.post('http://localhost:4000/api/v1/infos', {
+      heigth,
+      weight,
+      goal,
+      calories,
+      dietPlan,
+      trainingPlan,
+      age: 20,
+    },
+      { withCredentials: true }
+    )
+    console.log(signup)
+    navigate('/dashboard/exercises', {
+      replace: true
+    });
+  }
+
+
 
   const RegisterSchema = Yup.object().shape({
 
@@ -44,33 +76,6 @@ export default function RegisterInfo() {
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [gender, setGender] = useState('')
-  const [birthDate, setDate] = useState('')
-  const [phone, setPhone] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-
-  const handleOnSubmit = async (e) => {
-    e.preventDefault();
-    const signup = await axios.post('http://localhost:4000/api/v1/users/signup', {
-      "firstName": firstName,
-      "lastName": lastName,
-      "gender": gender,
-      "birthDate": birthDate,
-      "phone": phone,
-      "email": email,
-      "password": password
-    })
-    console.log(signup)
-    Cookies.set('jwt', signup.data['token'])
-    navigate('/dashboard/exercises', {
-      replace: true
-    });
-  }
-
   return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleOnSubmit}>
@@ -79,19 +84,19 @@ export default function RegisterInfo() {
             <TextField
               fullWidth
               label="Weight"
-            //  {...getFieldProps('firstName')}
-              error={Boolean(touched.firstName && errors.firstName)}
-              helperText={touched.firstName && errors.firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              //  {...getFieldProps('firstName')}
+              // error={Boolean(touched.firstName && errors.firstName)}
+              // helperText={touched.firstName && errors.firstName}
+              onChange={(e) => setWeight(e.target.value)}
             />
 
             <TextField
               fullWidth
               label="Height"
-           //   {...getFieldProps('lastName')}
-              error={Boolean(touched.lastName && errors.lastName)}
-              helperText={touched.lastName && errors.lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              //   {...getFieldProps('lastName')}
+              // error={Boolean(touched.lastName && errors.lastName)}
+              // helperText={touched.lastName && errors.lastName}
+              onChange={(e) => setHeight(e.target.value)}
             />
           </Stack>
           <TextField
@@ -99,42 +104,42 @@ export default function RegisterInfo() {
             autoComplete="Goal"
             type="phone"
             label="Goal"
-         //   {...getFieldProps('phone')}
-            error={Boolean(touched.phone && errors.phone)}
-            helperText={touched.phone && errors.phone}
-            onChange={(e) => setPhone(e.target.value)}
+            //   {...getFieldProps('phone')}
+            // error={Boolean(touched.phone && errors.phone)}
+            // helperText={touched.phone && errors.phone}
+            onChange={(e) => setGoal(e.target.value)}
           />
           <TextField
             fullWidth
             autoComplete="username"
             type="email"
             label="Calories"
-        //    {...getFieldProps('email')}
-            error={Boolean(touched.email && errors.email)}
-            helperText={touched.email && errors.email}
-            onChange={(e) => setEmail(e.target.value)}
+            //    {...getFieldProps('email')}
+            // error={Boolean(touched.email && errors.email)}
+            // helperText={touched.email && errors.email}
+            onChange={(e) => setCalories(e.target.value)}
           />
-<TextField
+          <TextField
             fullWidth
             autoComplete="username"
             type="email"
             label="DietPlan"
-          //  {...getFieldProps('email')}
+            //  {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setDietPlan(e.target.value)}
           />
           <TextField
             fullWidth
             autoComplete="username"
             type="email"
             label="TrainingPlan"
-          //  {...getFieldProps('email')}
+            //  {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setTrainingPlan(e.target.value)}
           />
-        
+
 
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
             Register

@@ -9,6 +9,8 @@ import _ from 'lodash';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './blog2.scss'
+
+
 export default function Blog2() {
   const [loading, setLoading] = useState(true);
   const [information, setInformation] = useState({})
@@ -19,21 +21,18 @@ export default function Blog2() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const data = await axios.get('http://localhost:4000/api/v1/users/me', { withCredentials: true });
-        console.log(data.data.client)
+        const data = await axios.get('http://localhost:4000/api/v1/trainers/me', { withCredentials: true });
+        console.log(data.data.trainer.id)
         setInformation({
-          id: data.data.client['id'],
-          firstName: data.data.client['firstName'],
-          lastName: data.data.client['lastName'],
-          gender: data.data.client['gender'],
-          phone: data.data.client['phone'],
-          age: data.data.client['info.age'],
-          weight: data.data.client['info.weight'],
-          height: data.data.client['info.heigth'],
-          email: data.data.client['email']
+          id: data.data.trainer['id'],
+          name: data.data.trainer['name'],
+          email: data.data.trainer['email'],
+          city: data.data.trainer['trainerInfo.city'],
+          state: data.data.trainer['trainerInfo.state'],
+          salary: data.data.trainer['trainerInfo.salary'],
+          gender: data.data.trainer['trainerInfo.gender'],
+          expert: data.data.trainer['trainerInfo.expert']
         })
-        const status = await axios.get('http://localhost:4000/api/v1/memberships', { withCredentials: true });
-        setStatus(status.data.data.active == 'true')
       } catch (error) {
         console.error(error.message);
       }
@@ -50,31 +49,19 @@ export default function Blog2() {
         <div className="avatar-flip">
           <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150" />
         </div>
-        <h4 className='center'>member state:<span className='state'>{status ? 'Active' : 'Inactive'}</span></h4>
         <div className='memberInfo'>
-
-
           <div className='right-div'>
-            <h2 className='h2'>name:<span>{information.firstName + " " + information.lastName}</span></h2>
+            <h2 className='h2'>name:<span>{information.name}</span></h2>
             <h2 className='h2'>Trainer ID: <span>{information.id}</span></h2>
             <h2 className='h2'>gender:<span>{information.gender}</span></h2>
-            <h2 className='h2'>date of birth:<span>{information.age}</span></h2>
-           
-
-
+            <h2 className='h2'>city:<span>{information.city}</span></h2>
           </div>
 
           <div className="vl"></div>
           <div className='secondInfo'>
-
-          <h4 className='h4'>email:<span>{information.email}</span></h4>
-        
-            <h4 className='h4'>phone:<span>{information.phone}</span></h4>
-            <h4 className='h4'> weight:<span>{information.weight}</span> kgm</h4>
-            <h2 className='h2'>age:<span>{information.age}</span></h2>
-
-          
-
+            <h4 className='h4'>email:<span>{information.email}</span></h4>
+            <h2 className='h2'>salary:<span> {information.salary} $</span></h2>
+            <h2 className='h2'>expert:<span>{information.expert}</span></h2>
           </div>
 
 

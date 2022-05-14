@@ -35,12 +35,12 @@ export default function LoginForm2() {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const login = await axios.post('http://localhost:4000/api/v1/users/login', {
+    const login = await axios.post('http://localhost:4000/api/v1/trainers/login', {
       email,
       password
     })
     Cookies.set('jwt', login.data['token'])
-    navigate('/dashboard/exercises', {
+    navigate('/dashboard/profile', {
       replace: true,
       firstName: login.data['firstName'],
       lastName: login.data['lastName'],

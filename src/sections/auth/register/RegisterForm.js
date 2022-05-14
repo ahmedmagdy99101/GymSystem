@@ -38,7 +38,7 @@ export default function RegisterForm() {
     // },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      navigate('/dashboard/signinfo', { replace: true });
+      navigate('/signinfo', { replace: true });
     },
   });
 
@@ -66,7 +66,7 @@ export default function RegisterForm() {
     })
     console.log(signup)
     Cookies.set('jwt', signup.data['token'])
-    navigate('/dashboard/signinfo', {
+    navigate('/signinfo', {
       replace: true
     });
   }

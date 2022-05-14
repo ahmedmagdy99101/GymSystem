@@ -55,6 +55,25 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
+const handleOnSubmit = async (e) => {
+  e.preventDefault();
+  const signup = await axios.post('http://localhost:4000/api/v1/users/signup', {
+    "firstName": firstName,
+    "lastName": lastName,
+    "gender": gender,
+    "birthDate": birthDate,
+    "phone": phone,
+    "email": email,
+    "password": password
+  })
+  console.log(signup)
+  Cookies.set('jwt', signup.data['token'])
+  navigate('/signinfo', {
+    replace: true
+  });
+}
+
+
 export default function Register() {
   const smUp = useResponsive('up', 'sm');
 
@@ -95,11 +114,11 @@ export default function Register() {
 
             <Typography sx={{ color: 'text.secondary', mb: 5 }}>Register as a new gym member.</Typography>
 
-          
+
 
             <RegisterForm />
 
-           
+
 
             {!smUp && (
               <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>
