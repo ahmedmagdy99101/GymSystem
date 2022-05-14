@@ -10,7 +10,7 @@ import Membership from './pages/membership';
 import Exercises from './pages/Exercises';
 import Home from './pages/Home';
 import Signupinfo from './pages/Signupinfo';
-
+import Login2 from './pages/Login2';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -32,7 +32,8 @@ export default function Router() {
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
         { path: 'signinfo', element: <Signupinfo/> },
+        { path: 'login2', element: <Login2/> },
       ],
-    },
+    },  
   ]);
 }
