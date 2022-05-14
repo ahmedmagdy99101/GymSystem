@@ -10,7 +10,9 @@ import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
 import Button from '@mui/material/Button';
-
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
@@ -42,13 +44,21 @@ DashboardNavbar.propTypes = {
   onOpenSidebar: PropTypes.func,
 };
 
+
+
+
 export default function DashboardNavbar({ onOpenSidebar }) {
+  const handleLogOut = async () => {
+    //await axios.post('http://localhost:4000/api/v1/users/logout', { withCredentials: true });
+    Cookies.set('jwt', undefined)
+  }
+
   return (
     <RootStyle>
       <ToolbarStyle>
-        
-      <Button variant="contained">Log out</Button>
-        
+
+        <Button variant="contained" onClick={handleLogOut}><Link to="/">LogOut</Link></Button>
+
       </ToolbarStyle>
     </RootStyle>
   );

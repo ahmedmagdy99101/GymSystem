@@ -139,6 +139,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     );
   }
   else {
-    return <div>No One</div>
+    return <div></div>
   }
 }

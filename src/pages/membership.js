@@ -14,11 +14,6 @@ import SubscriptionTable from '../components/SubscriptionTable';
 
 // ----------------------------------------------------------------------
 
-const handleSubmitCode = async (e) => {
-  e.preventDefault();
-  const codeInfo = await axios.post('http://localhost:4000/api/v1/payments', { code: e.target.code.value }, { withCredentials: true })
-}
-
 
 
 export default function EcommerceShop() {
@@ -28,6 +23,43 @@ export default function EcommerceShop() {
   const [date, setDate] = useState('');
   const [userID, setUserID] = useState('');
   const [name, setName] = useState('');
+  const [code, setCode] = useState('');
+
+
+  const handleCodeSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const codeInfo = await axios.post('http://localhost:4000/api/v1/payments', { code }, { withCredentials: true })
+      checkCodeValidity(codeInfo.data.message, codeInfo.data.status)
+    } catch (e) {
+      checkCodeValidity("Invalid Code, try again", "Failed")
+    }
+
+  }
+
+
+  const checkCodeValidity = (subscriptionMessage, status) => {
+    alert(subscriptionMessage);
+    if (status == 'Success')
+      window.location.reload();
+
+
+    // const subscriptionValue = subscriptionCodes.filter(code => code[subscriptionCode])
+    //   .map(cd => cd[subscriptionCode])[0];
+    // //const codeID = subscriptionCodes.filter(code => code[subscriptionCode])[0].id;
+    // if (subscriptionValue == 200) {
+
+    //   updateSubTable(90);
+    // } else if (subscriptionValue == 400) {
+    //   alert(`Your Subscription has been extended for 6 Months with 400EGP`);
+    //   updateSubTable(180);
+    // } else if (subscriptionValue == 600) {
+    //   alert(`Your Subscription has been extended for 1 Year with 600EGP`);
+    //   updateSubTable(365);
+    // } else {
+    //   alert("Invalid Code!");
+    // }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,10 +98,15 @@ export default function EcommerceShop() {
           </Typography>
           <p>To extend your subscription, please enter payment code in the field:</p>
           <div className='membership-payment'>
-            <form className="membership-paymentForm" onSubmit={handleSubmitCode}>
+            <form className="membership-paymentForm" onSubmit={handleCodeSubmit}>
               <label id="pay-label" htmlFor="code">Code: </label>
-              <input id="pay-text" type="text" name="code" />
-              <input id="pay-submit" type="submit" value="Subscribe" />
+              <input id="pay-text" type="text" name="code"
+                value={code}
+                onChange={e => setCode(e.target.value)}
+              />
+              {status == "true" &&
+                <input className="pay-submit pay-submit-dis" type="submit" value="Subscribe" disabled />}
+              {status == "false" && <input className="pay-submit" type="submit" value="Subscribe" />}
             </form>
           </div>
 

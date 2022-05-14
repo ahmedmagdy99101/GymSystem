@@ -41,6 +41,11 @@ td{
     text-align: center;
     padding: 2%;
 }
+.activation-expiration{
+    padding: 0.3em;
+    border-radius: 7px;
+    color: white;
+}
 .membership-paymentForm{
     /*border: 1px solid black;*/
     display: flex;
@@ -54,7 +59,7 @@ td{
     padding: 0.5%;
     font-size: 2em;
 }
-#pay-submit{
+.pay-submit{
     margin-left: 4%;
     padding: 1.5%;
     width: 20%;
@@ -67,6 +72,12 @@ td{
     color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#pay-submit:hover{
+.pay-submit:hover{
     cursor: pointer;
+}
+.pay-submit-dis{
+    opacity: 0.5;
+}
+.pay-submit-dis:hover{
+    cursor: not-allowed;
 }
