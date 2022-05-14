@@ -20,16 +20,11 @@ export default function ExerciseCard(props) {
         <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
                 <Grid item xs>
-                    <Typography gutterBottom variant="h3" component="div">
+                    <Typography gutterBottom variant="h4" component="div">
                         Type of exercise : {props.name}
                     </Typography>
-                    <Typography variant="body2" gutterBottom>
+                    <Typography variant="h3" gutterBottom>
                         {props.exercise}
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                        Remove
                     </Typography>
                 </Grid>
             </Grid>

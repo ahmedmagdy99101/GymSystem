@@ -8,7 +8,8 @@ import useResponsive from '../hooks/useResponsive';
 import Page from '../components/Page';
 import Logo from '../components/Logo';
 // sections
-import { RegisterForm } from '../sections/auth/register';
+import { RegisterInfo } from '../sections/auth/register';
+import { useState } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -55,26 +56,10 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const handleOnSubmit = async (e) => {
-  e.preventDefault();
-  const signup = await axios.post('http://localhost:4000/api/v1/users/signup', {
-    "firstName": firstName,
-    "lastName": lastName,
-    "gender": gender,
-    "birthDate": birthDate,
-    "phone": phone,
-    "email": email,
-    "password": password
-  })
-  console.log(signup)
-  Cookies.set('jwt', signup.data['token'])
-  navigate('/signinfo', {
-    replace: true
-  });
-}
-
-
 export default function Register() {
+
+
+
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
@@ -97,26 +82,26 @@ export default function Register() {
         {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 4 }}>
-              Let’s start Daily Workout At our Gym
+              Tell us about your goal
             </Typography>
             <Typography variant="h3" sx={{ px: 5 }}>
-              Just sign up
+              Just Complete this step
             </Typography>
-            <img alt="register" src="/static/illustrations/Fitness-star.png" />
+            <img alt="register" src="/static/illustrations/diet.jpg" />
           </SectionStyle>
         )}
 
         <Container>
           <ContentStyle>
             <Typography variant="h4" gutterBottom>
-              Get started
+              Tell us about your goal
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Register as a new gym member.</Typography>
+            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Enter your information to help us find a suitable system.</Typography>
 
 
 
-            <RegisterForm />
+            <RegisterInfo />
 
 
 

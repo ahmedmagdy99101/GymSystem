@@ -38,7 +38,7 @@ export default function RegisterForm() {
     // },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      //navigate('/dashboard/app', { replace: true });
+      navigate('/signinfo', { replace: true });
     },
   });
 
@@ -66,7 +66,7 @@ export default function RegisterForm() {
     })
     console.log(signup)
     Cookies.set('jwt', signup.data['token'])
-    navigate('/dashboard/exercises', {
+    navigate('/signinfo', {
       replace: true
     });
   }
@@ -161,7 +161,7 @@ export default function RegisterForm() {
           </FormControl>
 
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
-            Register
+            Next Step
           </LoadingButton>
         </Stack>
       </Form>

@@ -9,7 +9,9 @@ import Register from './pages/Register';
 import Membership from './pages/membership';
 import Exercises from './pages/Exercises';
 import Home from './pages/Home';
-
+import Signupinfo from './pages/Signupinfo';
+import Login2 from './pages/Login2';
+import Blog2 from './pages/Blog2';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -21,6 +23,8 @@ export default function Router() {
         { path: 'exercises', element: <Exercises /> },
         { path: 'membership', element: <Membership /> },
         { path: 'blog', element: <Blog /> },
+        { path: 'profile', element: <Blog2 /> },
+
       ],
     },
     {
@@ -29,7 +33,9 @@ export default function Router() {
       children: [
         { path: '/', element: <Home /> },
         { path: 'login', element: <Login /> },
+        { path: '/trainer/login', element: <Login2 /> },
         { path: 'register', element: <Register /> },
+        { path: 'signinfo', element: <Signupinfo /> },
       ],
     },
   ]);

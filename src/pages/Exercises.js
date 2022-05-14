@@ -17,6 +17,7 @@ export default function exercises() {
       setLoading(true);
       try {
         const data = await axios.get('http://localhost:4000/api/v1/sports/me', { withCredentials: true });
+        console.log(data)
         setName(data.data.sports[0]['name'])
         console.log(data.data.sports[0]['excercises'])
         setExcercisesName(data.data.sports[0]['excercises'])

@@ -8,7 +8,8 @@ import useResponsive from '../hooks/useResponsive';
 import Page from '../components/Page';
 import Logo from '../components/Logo';
 // sections
-import { RegisterForm } from '../sections/auth/register';
+import AuthSocial from '../sections/auth/AuthSocial';
+import LoginForm2 from 'src/sections/auth/login/LoginForm2';
 
 // ----------------------------------------------------------------------
 
@@ -44,7 +45,7 @@ const SectionStyle = styled(Card)(({ theme }) => ({
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
-  maxWidth: 480,
+  maxWidth: 550,
   margin: 'auto',
   minHeight: '100vh',
   display: 'flex',
@@ -55,40 +56,22 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const handleOnSubmit = async (e) => {
-  e.preventDefault();
-  const signup = await axios.post('http://localhost:4000/api/v1/users/signup', {
-    "firstName": firstName,
-    "lastName": lastName,
-    "gender": gender,
-    "birthDate": birthDate,
-    "phone": phone,
-    "email": email,
-    "password": password
-  })
-  console.log(signup)
-  Cookies.set('jwt', signup.data['token'])
-  navigate('/signinfo', {
-    replace: true
-  });
-}
-
-
-export default function Register() {
+export default function Login() {
   const smUp = useResponsive('up', 'sm');
 
   const mdUp = useResponsive('up', 'md');
 
   return (
-    <Page title="Register">
+    <Page title="Login">
       <RootStyle>
         <HeaderStyle>
           <Logo />
+
           {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
-              Already have an account? {''}
-              <Link variant="subtitle2" component={RouterLink} to="/login">
-                Login
+             HEY YOU Don’t have an account? {''}
+              <Link variant="subtitle2" component={RouterLink} to="/register">
+                Get started
               </Link>
             </Typography>
           )}
@@ -96,35 +79,28 @@ export default function Register() {
 
         {mdUp && (
           <SectionStyle>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 4 }}>
-              Let’s start Daily Workout At our Gym
-            </Typography>
-            <Typography variant="h3" sx={{ px: 5 }}>
-              Just sign up
-            </Typography>
-            <img alt="register" src="/static/illustrations/Fitness-star.png" />
+            
+            <img src="https://media.istockphoto.com/photos/muscular-trainer-writing-on-clipboard-picture-id675179390?k=20&m=675179390&s=612x612&w=0&h=7LP7-OamGu-b8XG-VKcJuamK5s80ke-4oJ5siUrjFVA=" alt="login" />
           </SectionStyle>
         )}
 
-        <Container>
+        <Container maxWidth="sm">
           <ContentStyle>
             <Typography variant="h4" gutterBottom>
-              Get started
+              Trainer sign in
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Register as a new gym member.</Typography>
+            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Enter your details below.</Typography>
 
+            <AuthSocial />
 
-
-            <RegisterForm />
-
-
+            <LoginForm2 />
 
             {!smUp && (
-              <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>
-                Already have an account?{' '}
-                <Link variant="subtitle2" to="/login" component={RouterLink}>
-                  Login
+              <Typography variant="body2" align="center" sx={{ mt: 3 }}>
+                Don’t have an account?{' '}
+                <Link variant="subtitle2" component={RouterLink} to="/register">
+                  Get started now
                 </Link>
               </Typography>
             )}
