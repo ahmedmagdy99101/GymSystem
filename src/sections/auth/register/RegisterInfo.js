@@ -90,8 +90,8 @@ export default function RegisterInfo() {
 
   const [currency, setCurrency] = React.useState(1);
 
-  const handleChange = () => {
-    setCurrency(target.value);
+  const handleChange = (e) => {
+    setCurrency(e.target.value);
   };
 
   return (

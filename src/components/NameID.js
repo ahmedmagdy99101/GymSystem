@@ -2,7 +2,7 @@ import '../membership-styling.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-const NameID = ({ userData }) => {
+const NameID = (props) => {
     return (
         <div>
             <div id='membership-container'>
