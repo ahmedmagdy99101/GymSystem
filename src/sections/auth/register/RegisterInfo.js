@@ -20,11 +20,11 @@ import Iconify from '../../../components/Iconify';
 
 const currencies = [
   {
-    value: '1',
+    value: 1,
     label: 'body building',
   },
   {
-    value: '2',
+    value: 2,
     label: 'power lefting',
   },
 ];
@@ -41,6 +41,7 @@ export default function RegisterInfo() {
   const [calories, setCalories] = useState(0);
   const [dietPlan, setDietPlan] = useState('');
   const [trainingPlan, setTrainingPlan] = useState('');
+  const [age, setAge] = useState(0);
 
 
   const handleOnSubmit = async (e) => {
@@ -52,7 +53,8 @@ export default function RegisterInfo() {
       calories,
       dietPlan,
       trainingPlan,
-      age: 20,
+      age,
+      sportId: currency
     },
       { withCredentials: true }
     )
@@ -86,7 +88,7 @@ export default function RegisterInfo() {
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
-  const [currency, setCurrency] = React.useState('1');
+  const [currency, setCurrency] = React.useState(1);
 
   const handleChange = () => {
     setCurrency(target.value);
@@ -130,7 +132,7 @@ export default function RegisterInfo() {
             //   {...getFieldProps('phone')}
             // error={Boolean(touched.phone && errors.phone)}
             // helperText={touched.phone && errors.phone}
-            onChange={(e) => setGoal(e.target.value)}
+            onChange={(e) => setAge(e.target.value)}
           />
           <TextField
             fullWidth
@@ -163,19 +165,19 @@ export default function RegisterInfo() {
             onChange={(e) => setTrainingPlan(e.target.value)}
           />
           <TextField
-          id="outlined-select-currency"
-          select
-          label="Sports"
-          value={currency}
-          onChange={handleChange}
-          helperText="Please select your sport"
-        >
-          {currencies.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+            id="outlined-select-currency"
+            select
+            label="Sports"
+            value={currency}
+            onChange={handleChange}
+            helperText="Please select your sport"
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
 
           <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
             Register
