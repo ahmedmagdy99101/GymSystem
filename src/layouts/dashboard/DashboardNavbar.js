@@ -56,8 +56,11 @@ export default function DashboardNavbar({ onOpenSidebar }) {
   return (
     <RootStyle>
       <ToolbarStyle>
-
-        <Button variant="contained" onClick={handleLogOut}><Link to="/">LogOut</Link></Button>
+      <Box sx={{ flexGrow: 1 }} />
+      <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
+      <Button variant="contained" onClick={handleLogOut}><Link className='link-ex' to="/">LogOut</Link></Button>
+        </Stack>
+        
 
       </ToolbarStyle>
     </RootStyle>
