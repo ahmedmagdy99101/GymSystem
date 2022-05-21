@@ -12,19 +12,8 @@ const users = [...Array(24)].map((_, index) => ({
   trainingplan: sample(['fitness', 'run']),
   progress: sample(['fesjkwfejfk', 'wefwefewfwef']),
  // isVerified: faker.datatype.boolean(),
-  status: sample(['active', 'not active']),
-  role: sample([
-    'Leader',
-    'Hr Manager',
-    'UI Designer',
-    'UX Designer',
-    'UI/UX Designer',
-    'Project Manager',
-    'Backend Developer',
-    'Full Stack Designer',
-    'Front End Developer',
-    'Full Stack Developer',
-  ]),
+  status: sample(['active', 'Expired']),
+  
 }));
 
 export default users;

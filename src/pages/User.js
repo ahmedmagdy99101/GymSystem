@@ -188,7 +188,7 @@ export default function User() {
                         <TableCell align="left">{trainingplan}</TableCell>
                         <TableCell align="left">{progress}</TableCell>
                         <TableCell align="left">
-                          <Label variant="ghost" color={(status === 'not active' && 'error') || 'success'}>
+                          <Label variant="ghost" color={(status === 'Expired' && 'error') || 'success'}>
                             {sentenceCase(status)}
                           </Label>
                         </TableCell>
