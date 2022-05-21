@@ -195,7 +195,7 @@ export default function RegisterInfo() {
             ))}
           </TextField>
           <TextField
-            id="outlined-select-currency"
+            id="outlined-select-Trainer"
             select
             label="Trainer"
             value={trainers}

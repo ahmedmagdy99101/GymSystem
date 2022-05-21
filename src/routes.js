@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Signupinfo from './pages/Signupinfo';
 import Login2 from './pages/Login2';
 import Blog2 from './pages/Blog2';
+import User from './pages/User';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -22,6 +23,7 @@ export default function Router() {
       children: [
         { path: 'exercises', element: <Exercises /> },
         { path: 'membership', element: <Membership /> },
+        { path: 'user', element: <User /> },
         { path: 'blog', element: <Blog /> },
         { path: 'profile', element: <Blog2 /> },
 

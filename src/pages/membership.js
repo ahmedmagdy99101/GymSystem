@@ -4,9 +4,9 @@ import axios from 'axios';
 import { Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
+
 // mock
-import PRODUCTS from '../_mock/products';
+
 import '../membership-styling.css';
 import NameID from '../components/NameID';
 import SubscriptionTable from '../components/SubscriptionTable';
