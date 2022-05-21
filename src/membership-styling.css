@@ -32,11 +32,11 @@
     margin: 7vh auto;
     border-radius: 20px;
 }
-th{
+.mem-table-header{
     border-bottom: 1px solid black;
     width: 50%;
 }
-td{
+.mem-table-info{
     border-bottom: 1px solid black;
     text-align: center;
     padding: 2%;

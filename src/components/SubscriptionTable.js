@@ -14,21 +14,21 @@ const SubscriptionTable = (props) => {
             <table className="membership-table">
                 <tbody>
                     <tr>
-                        <th>Subscription Status</th>
+                        <th className='mem-table-header'>Subscription Status</th>
                         {props.status === "true" ?
-                            <td><span className='activation-expiration' style={{ backgroundColor: "green" }}>
+                            <td className='mem-table-info'><span className='activation-expiration' style={{ backgroundColor: "green" }}>
                                 Active</span></td> :
-                            <td><span className='activation-expiration' style={{ backgroundColor: "red" }}>
+                            <td className='mem-table-info'><span className='activation-expiration' style={{ backgroundColor: "red" }}>
                                 Expired</span></td>
                         }
                     </tr>
                     <tr>
-                        <th>Subscription End Date</th>
-                        <td>{props.date}</td>
+                        <th className='mem-table-header'>Subscription End Date</th>
+                        <td className='mem-table-info'>{props.date}</td>
                     </tr>
                     <tr>
-                        <th>Remaining Days</th>
-                        <td>{getDays(props.date) > 0 ? Math.floor(getDays(props.date)) : 0} Days left</td>
+                        <th className='mem-table-header'>Remaining Days</th>
+                        <td className='mem-table-info'>{getDays(props.date) > 0 ? Math.floor(getDays(props.date)) : 0} Days left</td>
                     </tr>
                 </tbody>
             </table>
