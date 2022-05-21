@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
+import './exercises.css'
 const Img = styled('img')({
     margin: 'auto',
     display: 'block',
