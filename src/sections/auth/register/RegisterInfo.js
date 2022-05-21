@@ -29,6 +29,16 @@ const currencies = [
   },
 ];
 
+const trainers = [
+  {
+    value: 1,
+    label: 'Ahmed Magdy',
+  },
+  {
+    value: 2,
+    label: 'Ahmed Mohamed',
+  },
+];
 
 export default function RegisterInfo() {
   const navigate = useNavigate();
@@ -54,7 +64,8 @@ export default function RegisterInfo() {
       dietPlan,
       trainingPlan,
       age,
-      sportId: currency
+      sportId: currency,
+      trainerId: trainer
     },
       { withCredentials: true }
     )
@@ -89,9 +100,14 @@ export default function RegisterInfo() {
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   const [currency, setCurrency] = React.useState(1);
+  const [trainer, setTrainers] = React.useState(1);
 
   const handleChange = (e) => {
     setCurrency(e.target.value);
+  };
+
+  const handleChangetrainers = (e) => {
+    setTrainers(e.target.value);
   };
 
   return (
@@ -173,6 +189,20 @@ export default function RegisterInfo() {
             helperText="Please select your sport"
           >
             {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            id="outlined-select-currency"
+            select
+            label="Trainer"
+            value={trainers}
+            onChange={handleChangetrainers}
+            helperText="Please select your trainer"
+          >
+            {trainers.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
