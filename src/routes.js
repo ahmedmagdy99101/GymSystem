@@ -2,6 +2,8 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
+
+import DashboardLayoutTrainer from './layouts/dashboard/index2';
 //
 import Blog from './pages/Blog';
 import Login from './pages/Login';
@@ -33,7 +35,6 @@ export default function Router() {
       children: [
         { path: '/', element: <Home /> },
         { path: 'login', element: <Login /> },
-        { path: 'user', element: <User /> },
         { path: 'register', element: <Register /> },
         { path: 'signinfo', element: <Signupinfo /> },
         { path: 'trainer/login', element: <Login2 /> }
@@ -41,9 +42,10 @@ export default function Router() {
     },
     {
       path: '/trainer',
-      element: <DashboardLayout />,
+      element: <DashboardLayoutTrainer />,
       children: [
         { path: 'profile', element: <Blog2 /> },
+        { path: 'user', element: <User /> },
         { path: 'edituser/:id', element: <Edituser /> },
       ],
     },
