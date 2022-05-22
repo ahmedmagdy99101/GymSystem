@@ -80,7 +80,7 @@ export default function Blog2() {
           <br />
 
         </div>
-        <User />
+      
       </div>
     )
   }

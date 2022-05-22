@@ -4,7 +4,8 @@ import { Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 //
 import DashboardNavbar from './DashboardNavbar';
-import DashboardSidebar from './DashboardSidebar';
+import DashboardSidebarTrainer from './DashboardSidebarTrainer';
+//import DashboardSidebar from './DashboardSidebarTrainer';
 
 // ----------------------------------------------------------------------
 
@@ -32,13 +33,13 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function DashboardLayout() {
+export default function DashboardLayoutTrainer() {
   const [open, setOpen] = useState(false);
 
   return (
     <RootStyle>
-      <DashboardNavbar />
-      <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
+      <DashboardSidebarTrainer isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <MainStyle>
         <Outlet />
       </MainStyle>
@@ -47,4 +48,3 @@ export default function DashboardLayout() {
 }
 
 // the header is call <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
-
