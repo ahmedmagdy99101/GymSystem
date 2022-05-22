@@ -3,17 +3,15 @@
   margin-top: 0px;
   text-align: center;
 }
-.container {
+.container2 {
   color: #2F2E33;
 margin: auto;
-
   width: 1000px;
-  height: auto;
- background-color: #D5D6D2 ;
+  height: 65vh;
  box-shadow: 5px 5px 10px ;
 
 	border-radius: 60px;
-  
+  background-color: #FFDDD3;
   border: 2px solid black;
 }
 
@@ -32,8 +30,15 @@ margin: auto;
   -moz-box-shadow: 0 0 0 13px #f0f0f0;
 }
 
-
-.h2 {
+.h233{
+  width: 100%;
+	padding: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 5px;
+}
+.h23 {
   width: 100%;
 	padding: 20px;
   font-size: 28px;
@@ -43,7 +48,7 @@ margin: auto;
   border-bottom-style: solid;
   border-bottom-width: 3.1px;
 }
-.h4 {	padding: 20px;
+.h43 {	padding: 20px;
   font-weight: 600;
   width: 100%;
   font-size: 28px;
@@ -70,9 +75,9 @@ p {
   border-top: 2px solid black;
 	justify-content: space-evenly;
 }
-.vl {
-	border-left: 6px solid gray;
-	height: auto;
+.vl3 {
+	border-left: 4px solid gray;
+	height: 211px;
 	
   }
   .secondInfo{

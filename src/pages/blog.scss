@@ -3,13 +3,12 @@
   margin-top: 0px;
   text-align: center;
 }
-.container {
+.container1 {
   color: #2F2E33;
 margin: auto;
-
+background-color: #FFDDD3;
   width: 1000px;
-  height: 720px;
- background-color: #D5D6D2 ;
+  height: 85%;
  box-shadow: 5px 5px 10px ;
 
 	border-radius: 60px;
@@ -33,7 +32,7 @@ margin: auto;
 }
 
 
-.h2 {
+.h22 {
   width: 100%;
 	padding: 20px;
   font-size: 28px;
@@ -43,7 +42,7 @@ margin: auto;
   border-bottom-style: solid;
   border-bottom-width: 3.1px;
 }
-.h4 {	padding: 20px;
+.h44 {	padding: 20px;
   font-weight: 600;
   width: 100%;
   font-size: 28px;
@@ -51,6 +50,15 @@ margin: auto;
   padding-bottom: 5px;
   border-bottom-style: solid;
   border-bottom-width: 3.1px;
+}
+.h40{
+  padding: 20px;
+  font-weight: 600;
+  width: 100%;
+  font-size: 28px;
+  letter-spacing: 1px;
+  padding-bottom: 5px;
+
 }
 .state{
 	color: #228B22	;
@@ -70,9 +78,9 @@ p {
   border-top: 2px solid black;
 	justify-content: space-evenly;
 }
-.vl {
-	border-left: 6px solid gray;
-	height: auto;
+.vl1 {
+	border-left: 4px solid gray;
+	height: 422px;
 	
   }
   .secondInfo{

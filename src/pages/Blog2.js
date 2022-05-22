@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './blog2.scss'
 import User from '../pages/User';
+import profileimg from './gymOwner.jpg'
 
 
 
@@ -47,27 +48,27 @@ export default function Blog2() {
   if (!loading) {
     return (
       <div>
-        <div className="container">
+        <div className="container2">
           <br />
           <br />
           <br />
 
           <div className="avatar-flip">
-            <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150" />
+            <img src={profileimg} height="150" width="150" />
           </div>
           <div className='memberInfo'>
             <div className='right-div'>
-              <h2 className='h2'>name:<span>{information.name}</span></h2>
-              <h2 className='h2'>Trainer ID: <span>{information.id}</span></h2>
-              <h2 className='h2'>gender:<span>{information.gender}</span></h2>
-              <h2 className='h2'>city:<span>{information.city}</span></h2>
+              <h2 className='h23'>Name: <span>{information.name}</span></h2>
+              <h2 className='h23'>Trainer ID: <span>{information.id}</span></h2>
+              <h2 className='h23'>Gender: <span>{information.gender}</span></h2>
+              <h2 className='h233'>City: <span>{information.city}</span></h2>
             </div>
 
-            <div className="vl"></div>
+            <div className="vl3"></div>
             <div className='secondInfo'>
-              <h4 className='h4'>email:<span>{information.email}</span></h4>
-              <h2 className='h2'>salary:<span> {information.salary} $</span></h2>
-              <h2 className='h2'>expert:<span>{information.expert}</span></h2>
+              <h4 className='h43'>Email: <span>{information.email}</span></h4>
+              <h2 className='h23'>Salary: <span> {information.salary} $</span></h2>
+              <h2 className='h23'>Expert: <span>{information.expert}</span></h2>
             </div>
 
 

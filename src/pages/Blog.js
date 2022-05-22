@@ -6,6 +6,7 @@
 
 // ----------------------------------------------------------------------
 import _ from 'lodash';
+import profileimg from './gymOwner.jpg'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './blog.scss'
@@ -49,39 +50,38 @@ export default function Blog() {
 
   if (!loading) {
     return (
-      <div className="container">
-
+      <div className="container1">
         <div className="avatar-flip">
-          <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150" />
+          <img src={profileimg} height="150" width="150" />
         </div>
         <h4 className='center'>member state:<span className='state'>{status ? 'Active' : 'Inactive'}</span></h4>
         <div className='memberInfo'>
 
 
           <div className='right-div'>
-            <h2 className='h2'>name:<span>{information.firstName + " " + information.lastName}</span></h2>
-            <h2 className='h2'>User ID: <span>{information.id}</span></h2>
-            <h2 className='h2'>gender:<span>{information.gender}</span></h2>
-            <h2 className='h2'>date of birth:<span>{information.age}</span></h2>
-            <h2 className='h2'>goal:<span>{information.goal}</span></h2>
-            <h2 className='h2'>training plan:<span>{information.trainingPlan}</span></h2>
+            <h2 className='h22'>Name: <span>{information.firstName + " " + information.lastName}</span></h2>
+            <h2 className='h22'>User ID: <span>{information.id}</span></h2>
+            <h2 className='h22'>Gender: <span>{information.gender}</span></h2>
+            <h2 className='h22'>Date of birth: <span>{information.age}</span></h2>
+            <h2 className='h22'>Goal: <span>{information.goal}</span></h2>
+            <h2 className='h22'>Training plan: <span>{information.trainingPlan}</span></h2>
+            <h4 className='h40'>Diet plan: <span>{information.dietPlan}</span> cm</h4>
 
 
           </div>
 
-          <div className="vl"></div>
+          <div className="vl1"></div>
           <div className='secondInfo'>
 
-            <h4 className='h4'>email:<span>{information.email}</span></h4>
+            <h4 className='h44'>Email: <span>{information.email}</span></h4>
 
-            <h4 className='h4'>phone:<span>{information.phone}</span></h4>
-            <h4 className='h4'> weight:<span>{information.weight}</span> kgm</h4>
-            <h2 className='h2'>age:<span>{information.age}</span></h2>
+            <h4 className='h44'>Phone :<span>{information.phone}</span></h4>
+            <h4 className='h44'> Weight: <span>{information.weight}</span> kgm</h4>
+            <h2 className='h22'>Age: <span>{information.age}</span></h2>
 
-            <h4 className='h4'>height:<span>{information.height}</span> cm</h4>
-            <h4 className='h4'>calories:<span>{information.calories}</span> cm</h4>
-            <h4 className='h4'>diet plan:<span>{information.dietPlan}</span> cm</h4>
+            <h4 className='h44'>Height: <span>{information.height}</span> cm</h4>
 
+            <h4 className='h44'>Calories: <span>{information.calories}</span> cm</h4>
           </div>
 
 
