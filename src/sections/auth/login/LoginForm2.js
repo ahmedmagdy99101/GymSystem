@@ -29,7 +29,6 @@ export default function LoginForm2() {
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
-      console.log(formik.error)
     },
   });
 
@@ -58,13 +57,11 @@ export default function LoginForm2() {
   const handleSetEmail = (e) => {
     setEmail(e.target.value);
     formik.setValues({ ...formik.values, email: e.target.value })
-    console.log(email)
   }
 
   const handleSetPassword = (e) => {
     setPassword(e.target.value);
     formik.setValues({ ...formik.values, password: e.target.value })
-    console.log(password)
   }
 
 

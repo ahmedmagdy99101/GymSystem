@@ -66,14 +66,12 @@ export default function LoginForm() {
     setEmail(e.target.value);
     LoginSchema.validate({ email, password })
     formik.setValues({ ...formik.values, email: e.target.value })
-    console.log(email)
   }
 
   const handleSetPassword = (e) => {
     setPassword(e.target.value);
     LoginSchema.validate({ email, password })
     formik.setValues({ ...formik.values, password: e.target.value })
-    console.log(password)
   }
 
 
