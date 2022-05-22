@@ -1,4 +1,5 @@
 import { Link as RouterLink } from 'react-router-dom';
+import loginPic from './loginPic.jpg'
 // @mui
 import { styled } from '@mui/material/styles';
 import { Card, Link, Container, Typography } from '@mui/material';
@@ -73,7 +74,7 @@ export default function Login() {
         {mdUp && (
           <SectionStyle>
 
-            <img src="https://media.istockphoto.com/photos/muscular-trainer-writing-on-clipboard-picture-id675179390?k=20&m=675179390&s=612x612&w=0&h=7LP7-OamGu-b8XG-VKcJuamK5s80ke-4oJ5siUrjFVA=" alt="login" />
+            <img src={loginPic} alt="login" />
           </SectionStyle>
         )}
 
