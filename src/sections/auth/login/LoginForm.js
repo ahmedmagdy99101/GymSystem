@@ -14,6 +14,9 @@ import Cookies from 'js-cookie'
 export default function LoginForm() {
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
@@ -28,10 +31,15 @@ export default function LoginForm() {
       remember: true,
     },
     validationSchema: LoginSchema,
-    onSubmit: () => {
+    onSubmit: (v) => {
 
     },
   });
+
+
+
+
+
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -52,11 +60,11 @@ export default function LoginForm() {
     setShowPassword((show) => !show);
   };
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
 
   const handleSetEmail = (e) => {
     setEmail(e.target.value);
+    LoginSchema.validate({ email, password })
     console.log(email)
   }
 

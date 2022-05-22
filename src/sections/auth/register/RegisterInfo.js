@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -30,14 +30,14 @@ const currencies = [
 ];
 
 const trainers = [
-  {
-    value: 1,
-    label: 'Ahmed Magdy',
-  },
-  {
-    value: 2,
-    label: 'Ahmed Mohamed',
-  },
+  // {
+  //   id: 1,
+  //   label: 'Ahmed Magdy',
+  // },
+  // {
+  //   id: 2,
+  //   label: 'Ahmed Mohamed',
+  // },
 ];
 
 export default function RegisterInfo() {
@@ -97,10 +97,13 @@ export default function RegisterInfo() {
     },
   });
 
+
+
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   const [currency, setCurrency] = React.useState(1);
   const [trainer, setTrainers] = React.useState(1);
+  const [loading, setLoading] = useState(true);
 
   const handleChange = (e) => {
     setCurrency(e.target.value);
@@ -110,110 +113,131 @@ export default function RegisterInfo() {
     setTrainers(e.target.value);
   };
 
-  return (
-    <FormikProvider value={formik}>
-      <Form autoComplete="off" noValidate onSubmit={handleOnSubmit}>
-        <Stack spacing={3}>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-            <TextField
-              fullWidth
-              label="Weight"
-              //  {...getFieldProps('firstName')}
-              // error={Boolean(touched.firstName && errors.firstName)}
-              // helperText={touched.firstName && errors.firstName}
-              onChange={(e) => setWeight(e.target.value)}
-            />
 
+  useEffect(async () => {
+    setLoading(true);
+    const trainers_ = await axios.get('http://localhost:4000/api/v1/trainers', { withCredentials: true })
+    console.log(trainers_)
+    trainers_.data["trainers"].map((trainer_) => {
+      trainers.push({
+        value: trainer_.id,
+        label: trainer_.name
+      })
+    })
+    setLoading(false);
+    console.log(trainers)
+  }, []);
+
+  if (!loading) {
+    return (
+      <FormikProvider value={formik}>
+        <Form autoComplete="off" noValidate onSubmit={handleOnSubmit}>
+          <Stack spacing={3}>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+              <TextField
+                fullWidth
+                label="Weight"
+                //  {...getFieldProps('firstName')}
+                // error={Boolean(touched.firstName && errors.firstName)}
+                // helperText={touched.firstName && errors.firstName}
+                onChange={(e) => setWeight(e.target.value)}
+              />
+
+              <TextField
+                fullWidth
+                label="Height"
+                //   {...getFieldProps('lastName')}
+                // error={Boolean(touched.lastName && errors.lastName)}
+                // helperText={touched.lastName && errors.lastName}
+                onChange={(e) => setHeight(e.target.value)}
+              />
+            </Stack>
             <TextField
               fullWidth
-              label="Height"
-              //   {...getFieldProps('lastName')}
-              // error={Boolean(touched.lastName && errors.lastName)}
-              // helperText={touched.lastName && errors.lastName}
-              onChange={(e) => setHeight(e.target.value)}
+              autoComplete="Goal"
+              label="Goal"
+              //   {...getFieldProps('phone')}
+              // error={Boolean(touched.phone && errors.phone)}
+              // helperText={touched.phone && errors.phone}
+              onChange={(e) => setGoal(e.target.value)}
             />
+            <TextField
+              fullWidth
+              label="Age"
+              //   {...getFieldProps('phone')}
+              // error={Boolean(touched.phone && errors.phone)}
+              // helperText={touched.phone && errors.phone}
+              onChange={(e) => setAge(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              autoComplete="username"
+              type="email"
+              label="Calories"
+              //    {...getFieldProps('email')}
+              // error={Boolean(touched.email && errors.email)}
+              // helperText={touched.email && errors.email}
+              onChange={(e) => setCalories(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              autoComplete="username"
+              type="email"
+              label="DietPlan"
+              //  {...getFieldProps('email')}
+              error={Boolean(touched.email && errors.email)}
+              helperText={touched.email && errors.email}
+              onChange={(e) => setDietPlan(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              autoComplete="username"
+              type="email"
+              label="TrainingPlan"
+              //  {...getFieldProps('email')}
+              error={Boolean(touched.email && errors.email)}
+              helperText={touched.email && errors.email}
+              onChange={(e) => setTrainingPlan(e.target.value)}
+            />
+            <TextField
+              id="outlined-select-currency"
+              select
+              label="Sports"
+              value={currency}
+              onChange={handleChange}
+              helperText="Please select your sport"
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              id="outlined-select-Trainer"
+              select
+              label="Trainer"
+              value={trainer}
+              onChange={handleChangetrainers}
+              helperText="Please select your trainer"
+            >
+              {trainers.map((option) => (
+
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
+              Register
+            </LoadingButton>
           </Stack>
-          <TextField
-            fullWidth
-            autoComplete="Goal"
-            label="Goal"
-            //   {...getFieldProps('phone')}
-            // error={Boolean(touched.phone && errors.phone)}
-            // helperText={touched.phone && errors.phone}
-            onChange={(e) => setGoal(e.target.value)}
-          />
-          <TextField
-            fullWidth
-            label="Age"
-            //   {...getFieldProps('phone')}
-            // error={Boolean(touched.phone && errors.phone)}
-            // helperText={touched.phone && errors.phone}
-            onChange={(e) => setAge(e.target.value)}
-          />
-          <TextField
-            fullWidth
-            autoComplete="username"
-            type="email"
-            label="Calories"
-            //    {...getFieldProps('email')}
-            // error={Boolean(touched.email && errors.email)}
-            // helperText={touched.email && errors.email}
-            onChange={(e) => setCalories(e.target.value)}
-          />
-          <TextField
-            fullWidth
-            autoComplete="username"
-            type="email"
-            label="DietPlan"
-            //  {...getFieldProps('email')}
-            error={Boolean(touched.email && errors.email)}
-            helperText={touched.email && errors.email}
-            onChange={(e) => setDietPlan(e.target.value)}
-          />
-          <TextField
-            fullWidth
-            autoComplete="username"
-            type="email"
-            label="TrainingPlan"
-            //  {...getFieldProps('email')}
-            error={Boolean(touched.email && errors.email)}
-            helperText={touched.email && errors.email}
-            onChange={(e) => setTrainingPlan(e.target.value)}
-          />
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Sports"
-            value={currency}
-            onChange={handleChange}
-            helperText="Please select your sport"
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            id="outlined-select-Trainer"
-            select
-            label="Trainer"
-            value={trainers}
-            onChange={handleChangetrainers}
-            helperText="Please select your trainer"
-          >
-            {trainers.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-
-          <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
-            Register
-          </LoadingButton>
-        </Stack>
-      </Form>
-    </FormikProvider>
-  );
+        </Form>
+      </FormikProvider>
+    );
+  }
+  else {
+    return (<div>Not Found</div>)
+  }
 }

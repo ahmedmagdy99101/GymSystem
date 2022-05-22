@@ -24,11 +24,7 @@ export default function Router() {
       children: [
         { path: 'exercises', element: <Exercises /> },
         { path: 'membership', element: <Membership /> },
-        { path: 'user', element: <User /> },
-        { path: 'edituser', element: <Edituser /> },
         { path: 'blog', element: <Blog /> },
-        { path: 'profile', element: <Blog2 /> },
-
       ],
     },
     {
@@ -37,9 +33,18 @@ export default function Router() {
       children: [
         { path: '/', element: <Home /> },
         { path: 'login', element: <Login /> },
-        { path: '/trainer/login', element: <Login2 /> },
+        { path: 'user', element: <User /> },
         { path: 'register', element: <Register /> },
         { path: 'signinfo', element: <Signupinfo /> },
+        { path: 'trainer/login', element: <Login2 /> }
+      ],
+    },
+    {
+      path: '/trainer',
+      element: <DashboardLayout />,
+      children: [
+        { path: 'profile', element: <Blog2 /> },
+        { path: 'edituser/:id', element: <Edituser /> },
       ],
     },
   ]);

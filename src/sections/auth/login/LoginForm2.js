@@ -40,7 +40,7 @@ export default function LoginForm2() {
       password
     })
     Cookies.set('jwt', login.data['token'])
-    navigate('/dashboard/profile', {
+    navigate('/trainer/profile', {
       replace: true,
       firstName: login.data['firstName'],
       lastName: login.data['lastName'],
