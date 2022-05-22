@@ -47,12 +47,12 @@ export default function DashboardSidebarTrainer({ isOpenSidebar, onCloseSidebar 
 
   const isDesktop = useResponsive('up', 'lg');
 
-  useEffect(() => {
-    if (isOpenSidebar) {
-      onCloseSidebar();
-    }
+  // useEffect(() => {
+  //   if (isOpenSidebar) {
+  //     onCloseSidebar();
+  //   }
 
-  }, [pathname]);
+  // }, [pathname]);
 
 
   const [loading, setLoading] = useState('');
@@ -61,15 +61,15 @@ export default function DashboardSidebarTrainer({ isOpenSidebar, onCloseSidebar 
     const fetchData = async () => {
       setLoading(true);
       try {
-        const userInfo = await axios.get('http://localhost:4000/api/v1/users/me', { withCredentials: true });
-        setName(userInfo.data.client['firstName'] + " " + userInfo.data.client['lastName'])
+        const trainer = await axios.get('http://localhost:4000/api/v1/trainers/me', { withCredentials: true });
+        setName(trainer.data.trainer.name)
       } catch (error) {
         console.error(error.message);
       }
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [name]);
 
   const renderContent = (
     <Scrollbar

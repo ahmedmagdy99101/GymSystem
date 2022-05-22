@@ -69,7 +69,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [name]);
 
   const renderContent = (
     <Scrollbar
