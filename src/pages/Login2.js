@@ -67,19 +67,12 @@ export default function Login() {
         <HeaderStyle>
           <Logo />
 
-          {smUp && (
-            <Typography variant="body2" sx={{ mt: { md: -2 } }}>
-             HEY YOU Don’t have an account? {''}
-              <Link variant="subtitle2" component={RouterLink} to="/register">
-                Get started
-              </Link>
-            </Typography>
-          )}
+
         </HeaderStyle>
 
         {mdUp && (
           <SectionStyle>
-            
+
             <img src="https://media.istockphoto.com/photos/muscular-trainer-writing-on-clipboard-picture-id675179390?k=20&m=675179390&s=612x612&w=0&h=7LP7-OamGu-b8XG-VKcJuamK5s80ke-4oJ5siUrjFVA=" alt="login" />
           </SectionStyle>
         )}

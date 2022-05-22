@@ -20,8 +20,8 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
-    email1: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password1: Yup.string().required('Password is required'),
+    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
+    password: Yup.string().required('Password is required'),
   });
 
   const formik = useFormik({
@@ -65,14 +65,19 @@ export default function LoginForm() {
   const handleSetEmail = (e) => {
     setEmail(e.target.value);
     LoginSchema.validate({ email, password })
+    formik.setValues({ ...formik.values, email: e.target.value })
     console.log(email)
   }
 
   const handleSetPassword = (e) => {
     setPassword(e.target.value);
+    LoginSchema.validate({ email, password })
+    formik.setValues({ ...formik.values, password: e.target.value })
     console.log(password)
   }
 
+
+  console.log(formik.values)
 
   return (
     <FormikProvider value={formik}>
@@ -117,10 +122,6 @@ export default function LoginForm() {
             control={<Checkbox {...getFieldProps('remember')} checked={values.remember} />}
             label="Remember me"
           />
-
-          <Link component={RouterLink} variant="subtitle2" to="#" underline="hover">
-            Forgot password?
-          </Link>
         </Stack>
 
         <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
