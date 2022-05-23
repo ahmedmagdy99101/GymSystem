@@ -22,20 +22,28 @@ export default function RegisterForm() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const RegisterSchema = Yup.object().shape({
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
+
+  const RegisterSchema = Yup.object().shape({
+    firstName: Yup.string().required('first name is required'),
+    lastName: Yup.string().required('last name is required'),
+    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
+    password: Yup.string().required('Password is required'),
+    phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Enter your mobile'),
+    gender: Yup.string().required('Enter your gender')
   });
 
   const formik = useFormik({
-    // initialValues: {
-    //   firstName: '',
-    //   lastName: '',
-    //   phone: '',
-    //   email: '',
-    //   password: '',
-    //   date: '',
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      password: '',
+      date: '',
 
-    // },
+    },
     validationSchema: RegisterSchema,
     onSubmit: () => {
       navigate('/signinfo', { replace: true });
@@ -51,6 +59,7 @@ export default function RegisterForm() {
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
 
 
   const handleOnSubmit = async (e) => {
@@ -82,7 +91,10 @@ export default function RegisterForm() {
               {...getFieldProps('firstName')}
               error={Boolean(touched.firstName && errors.firstName)}
               helperText={touched.firstName && errors.firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => {
+                setFirstName(e.target.value)
+                formik.setValues({ ...formik.values, firstName: e.target.value })
+              }}
             />
 
             <TextField
@@ -91,18 +103,24 @@ export default function RegisterForm() {
               {...getFieldProps('lastName')}
               error={Boolean(touched.lastName && errors.lastName)}
               helperText={touched.lastName && errors.lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={(e) => {
+                setLastName(e.target.value)
+                formik.setValues({ ...formik.values, lastName: e.target.value })
+              }}
             />
           </Stack>
           <TextField
             fullWidth
-            autoComplete="username"
+            autoComplete="phone"
             type="phone"
             label="phone"
             {...getFieldProps('phone')}
             error={Boolean(touched.phone && errors.phone)}
             helperText={touched.phone && errors.phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              formik.setValues({ ...formik.values, phone: e.target.value })
+              setPhone(e.target.value)
+            }}
           />
           <TextField
             fullWidth
@@ -112,7 +130,10 @@ export default function RegisterForm() {
             {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value)
+              formik.setValues({ ...formik.values, email: e.target.value })
+            }}
           />
 
           <TextField
@@ -132,7 +153,10 @@ export default function RegisterForm() {
             }}
             error={Boolean(touched.password && errors.password)}
             helperText={touched.password && errors.password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value)
+              formik.setValues({ ...formik.values, password: e.target.value })
+            }}
           />
           <TextField
             fullWidth
@@ -149,13 +173,13 @@ export default function RegisterForm() {
             <FormLabel id="Gender">Gender</FormLabel>
             <RadioGroup
               row
+              defaultValue="male"
               aria-labelledby="group-Gender"
               name="group-Gender-name"
               onChange={(e) => setGender(e.target.value)}
             >
               <FormControlLabel value="female" control={<Radio />} label="Female" />
               <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
 
             </RadioGroup>
           </FormControl>
